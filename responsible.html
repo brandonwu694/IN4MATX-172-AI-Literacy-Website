@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="AI Ready - Examples of responsible and unethical AI use for students." />
+  <meta property="og:title" content="AI Ready - Responsible AI Use" />
+  <meta property="og:description" content="Examples of responsible and unethical AI use for students." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="favicon.svg" />
+  <title>AI Ready - Responsible AI Use</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --ink: #0b1020;
+      --ink-soft: #1f2a44;
+      --sand: #f7f4ef;
+      --mint: #c7f2e0;
+      --ocean: #0d5c7b;
+      --sun: #f6c155;
+      --coral: #ef6f5a;
+      --card: #ffffff;
+      --shadow: 0 20px 50px rgba(11, 16, 32, 0.18);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      color: var(--ink);
+      background: radial-gradient(circle at top left, #ffffff 0%, #f5f1eb 45%, #e8f4f0 100%);
+      line-height: 1.6;
+    }
+
+    header {
+      padding: 3.5rem 1.5rem 2.5rem;
+      background: linear-gradient(125deg, #10364f 0%, #0d5c7b 45%, #0f7a7a 100%);
+      color: #fef6e9;
+    }
+
+    .wrap {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      font-size: 1.1rem;
+    }
+
+    .back {
+      color: #fef6e9;
+      text-decoration: none;
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      padding: 0.5rem 1rem;
+      border-radius: 999px;
+      font-weight: 600;
+    }
+
+    .back:focus-visible {
+      outline: 2px solid #fef6e9;
+      outline-offset: 2px;
+    }
+
+    h1 {
+      font-size: clamp(2.2rem, 4vw, 3rem);
+      margin: 1.8rem 0 0.8rem;
+    }
+
+    .lead {
+      max-width: 720px;
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    section {
+      padding: 3rem 1.5rem;
+    }
+
+    .grid {
+      display: grid;
+      gap: 1.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    }
+
+    .card {
+      background: var(--card);
+      border-radius: 18px;
+      padding: 1.5rem;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(15, 32, 64, 0.08);
+    }
+
+    .card h2 {
+      margin: 0 0 0.8rem;
+      font-size: 1.4rem;
+    }
+
+    .list {
+      margin: 0;
+      padding-left: 1.2rem;
+      color: var(--ink-soft);
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-weight: 600;
+      font-size: 0.9rem;
+      padding: 0.2rem 0.6rem;
+      border-radius: 999px;
+      margin-bottom: 0.7rem;
+    }
+
+    .tag.good {
+      background: rgba(199, 242, 224, 0.7);
+      color: #0f3d2e;
+    }
+
+    .tag.bad {
+      background: rgba(239, 111, 90, 0.15);
+      color: #8f2313;
+    }
+
+    .note {
+      background: #fefcf8;
+      border-radius: 16px;
+      padding: 1.2rem 1.4rem;
+      border: 1px solid rgba(13, 92, 123, 0.15);
+      color: var(--ink-soft);
+      margin-top: 2rem;
+    }
+
+    footer {
+      background: #0f1c2b;
+      color: #e7edf6;
+      padding: 2rem 1.5rem;
+      text-align: center;
+      font-size: 0.95rem;
+    }
+
+    footer a {
+      color: #e7edf6;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <nav class="nav">
+        <div class="logo">AI Ready</div>
+        <a class="back" href="home.html">Back to home</a>
+      </nav>
+      <h1>Responsible vs. Unethical AI Use</h1>
+      <p class="lead">
+        Use AI to learn faster, not to replace your work. These examples make it clear what helps you grow
+        and what crosses the line.
+      </p>
+    </div>
+  </header>
+
+  <section>
+    <div class="wrap grid">
+      <div class="card">
+        <div class="tag good">Responsible AI Use</div>
+        <h2>Good learning habits</h2>
+        <ul class="list">
+          <li>Getting feedback on an essay and revising it yourself.</li>
+          <li>Asking AI what is wrong with your code, then debugging the issue yourself.</li>
+          <li>Learning new concepts and asking follow-up questions.</li>
+          <li>Creating practice questions to study for a midterm.</li>
+          <li>Practicing interview questions and answers.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="tag bad">Unethical AI Use</div>
+        <h2>Shortcuts that hurt you</h2>
+        <ul class="list">
+          <li>Having AI write your entire essay.</li>
+          <li>Copying AI code word-for-word and not understanding what it did.</li>
+          <li>Not learning course content and having AI do all the work.</li>
+          <li>Using an AI-generated response as your own content.</li>
+          <li>Using AI tools during exams or quizzes without permission.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="wrap">
+      <div class="note">
+        Always follow your school or workplace AI policies. If you are unsure, ask your teacher, supervisor,
+        or program guidelines before using AI for graded or paid work.
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>AI Ready helps students use AI responsibly and confidently.</p>
+    <p><a href="home.html">Return to AI Ready home</a></p>
+  </footer>
+</body>
+</html>
