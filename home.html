@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="AI Ready is a free, self-paced, mobile-friendly guide to AI skills for 11th–12th graders." />
+  <meta name="description" content="AI Ready is a free, self-paced, mobile-friendly guide to AI skills for college students." />
   <meta property="og:title" content="AI Ready" />
-  <meta property="og:description" content="A free, self-paced, mobile-friendly guide to AI skills for 11th–12th graders." />
+  <meta property="og:description" content="A free, self-paced, mobile-friendly guide to AI skills for college students." />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="favicon.svg" />
   <title>AI Ready</title>
@@ -354,6 +354,76 @@
       border-top-color: #8fd3ff;
     }
 
+    .tool-grid {
+      display: grid;
+      gap: 1.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    }
+
+    .tool {
+      display: grid;
+      gap: 0.8rem;
+    }
+
+    .tool p {
+      margin: 0;
+      color: var(--ink-soft);
+    }
+
+    .tool-note {
+      margin-top: -0.2rem;
+      font-size: 0.9rem;
+      color: #314968;
+    }
+
+    .tool label {
+      display: grid;
+      gap: 0.3rem;
+      font-weight: 600;
+      color: var(--ink-soft);
+      font-size: 0.95rem;
+    }
+
+    .tool input,
+    .tool textarea,
+    .tool select {
+      width: 100%;
+      border: 1px solid rgba(13, 92, 123, 0.25);
+      border-radius: 10px;
+      padding: 0.65rem 0.75rem;
+      font: inherit;
+      background: #ffffff;
+      color: var(--ink);
+    }
+
+    .tool textarea {
+      min-height: 90px;
+      resize: vertical;
+    }
+
+    .tool button {
+      width: fit-content;
+      margin-top: 0.2rem;
+      background: var(--ocean);
+      color: #ffffff;
+      border: none;
+      padding: 0.75rem 1.1rem;
+      border-radius: 10px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .tool-output {
+      display: none;
+      margin-top: 0.4rem;
+      padding: 0.9rem 1rem;
+      border-radius: 12px;
+      background: #fefcf8;
+      border: 1px solid rgba(13, 92, 123, 0.2);
+      color: var(--ink-soft);
+      white-space: pre-line;
+    }
+
     footer {
       background: #0f1c2b;
       color: #e7edf6;
@@ -383,10 +453,11 @@
     <div class="wrap">
       <nav class="nav">
         <div class="logo">AI Ready</div>
-        <div class="pill">Built for 11th–12th graders • 100% free</div>
+        <div class="pill">Built for college students • 100% free</div>
         <div class="nav-links" aria-label="Primary">
           <a href="#quiz">Quiz</a>
           <a href="#topics">Key topics</a>
+          <a href="#activities">Activities</a>
           <a href="#podcast">Podcast</a>
           <a href="responsible.html">Responsible use</a>
         </div>
@@ -396,7 +467,7 @@
         <div>
           <h1>AI Ready</h1>
           <p>
-            A free, self-paced guide to using AI for school, college applications, and future jobs.
+            A free, self-paced guide to using AI for classes, grad school or PhD applications, and future jobs.
             Learn to ask great questions, get better results, and stay responsible with AI tools.
           </p>
       <div class="cta-group">
@@ -409,7 +480,7 @@
       <ul>
             <li><span>📱</span> Mobile-friendly lessons for busy schedules</li>
             <li><span>🧭</span> Step-by-step practice you can repeat anytime</li>
-            <li><span>🎯</span> Focused on real teen goals: school, college, careers</li>
+            <li><span>🎯</span> Focused on real college goals: academics, grad school, careers</li>
           </ul>
           <a class="cta secondary" href="responsible.html">Responsible AI use guide</a>
         </div>
@@ -424,7 +495,7 @@
         <div>
           <h2 class="section-title">Dr. Young's Podcast</h2>
           <p class="section-lead">
-            Short, student-friendly conversations on AI, school success, and preparing for college or career paths.
+            Short, student-friendly conversations on AI, college success, and preparing for grad school or career paths.
           </p>
         </div>
         <div>
@@ -454,7 +525,7 @@
         </div>
         <div class="card">
           <h4>Future-ready</h4>
-          <p>College and employers want students who can use AI tools responsibly.</p>
+          <p>Graduate programs and employers want students who can use AI tools responsibly.</p>
         </div>
       </div>
     </div>
@@ -503,22 +574,22 @@
 
   <section id="topics">
     <div class="wrap">
-      <h2 class="section-title">Key topics for 11th–12th graders</h2>
+      <h2 class="section-title">Key topics for college students</h2>
       <p class="section-lead">
         Each topic is <span class="highlight">100% free</span>, self-paced, and built to fit into busy schedules.
       </p>
       <div class="grid topics">
         <div class="card">
           <h4>Resume & Applications</h4>
-          <p>Get help tailoring resumes, activity lists, and scholarship applications with clear prompts.</p>
+          <p>Get help tailoring resumes, activity lists, and internship or fellowship applications with clear prompts.</p>
         </div>
         <div class="card">
           <h4>Interview Practice</h4>
           <p>Simulate interview questions and learn how to answer with confidence.</p>
         </div>
         <div class="card">
-          <h4>College Essays</h4>
-          <p>Brainstorm topics, outline stories, and refine your unique voice.</p>
+          <h4>Grad School & PhD Applications</h4>
+          <p>Brainstorm research interests, outline statements of purpose, and refine your voice.</p>
         </div>
         <div class="card">
           <h4>Career Exploration</h4>
@@ -528,8 +599,66 @@
     </div>
   </section>
 
+  <section id="activities">
+    <div class="wrap">
+      <h2 class="section-title">Practice Activities</h2>
+      <p class="section-lead">
+        Try these quick tools for the top student support needs from your survey: job applications, interview practice, and time management.
+      </p>
+      <div class="tool-grid">
+        <div class="card tool">
+          <h4>Job Application Bullet Builder</h4>
+          <p>Paste a role and your experience, then get strong bullet starters you can tailor.</p>
+          <p class="tool-note">Use these as drafts only. Verify details and align with your course and campus AI policies.</p>
+          <label for="job-role">Role or internship title</label>
+          <input id="job-role" type="text" placeholder="Example: Data Analyst Intern" />
+          <label for="job-highlights">Job posting keywords (comma-separated)</label>
+          <textarea id="job-highlights" placeholder="SQL, dashboards, communication, Python"></textarea>
+          <label for="job-experience">Your related experience</label>
+          <textarea id="job-experience" placeholder="Class project, club role, work, research..."></textarea>
+          <button type="button" id="job-generate">Generate bullet ideas</button>
+          <div class="tool-output" id="job-output" role="status" aria-live="polite"></div>
+        </div>
+
+        <div class="card tool">
+          <h4>Interview Practice Coach</h4>
+          <p>Generate a practice question and get feedback using a STAR-style checklist.</p>
+          <p class="tool-note">Practice with AI, then confirm content quality with an instructor, TA, or career center mentor.</p>
+          <label for="interview-type">Interview type</label>
+          <select id="interview-type">
+            <option value="behavioral">Behavioral</option>
+            <option value="technical">Technical</option>
+            <option value="grad">Grad School/Research</option>
+          </select>
+          <button type="button" id="interview-question-btn">Generate question</button>
+          <div class="tool-output" id="interview-question" role="status" aria-live="polite"></div>
+          <label for="interview-answer">Your answer draft</label>
+          <textarea id="interview-answer" placeholder="Write a short answer here..."></textarea>
+          <button type="button" id="interview-feedback-btn">Get feedback</button>
+          <div class="tool-output" id="interview-feedback" role="status" aria-live="polite"></div>
+        </div>
+
+        <div class="card tool">
+          <h4>Time Management Planner</h4>
+          <p>Turn one deadline into a realistic day-by-day study plan.</p>
+          <p class="tool-note">Treat this as a planning start point. Adjust based on your actual workload and course expectations.</p>
+          <label for="plan-task">Task or assignment</label>
+          <input id="plan-task" type="text" placeholder="Example: Midterm prep for BIO 97" />
+          <label for="plan-date">Due date</label>
+          <input id="plan-date" type="date" />
+          <label for="plan-hours">Estimated total hours needed</label>
+          <input id="plan-hours" type="number" min="1" max="80" value="8" />
+          <label for="plan-daily">Hours you can do per day</label>
+          <input id="plan-daily" type="number" min="1" max="12" value="2" />
+          <button type="button" id="plan-generate">Build plan</button>
+          <div class="tool-output" id="plan-output" role="status" aria-live="polite"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <footer>
-    <p>AI Ready is designed for students preparing for college and the workforce.</p>
+    <p>AI Ready is designed for college students preparing for graduate study and the workforce.</p>
     <p>Always follow your school or workplace AI guidelines.</p>
     <p><a href="responsible.html" style="color: #e7edf6;">Responsible AI use guide</a></p>
   </footer>
@@ -559,6 +688,176 @@
       result.textContent = `Score: ${score}/10. ${message}`;
       result.style.display = 'block';
       result.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    });
+
+    const escapeHtml = (value) =>
+      value
+        .replaceAll('&', '&amp;')
+        .replaceAll('<', '&lt;')
+        .replaceAll('>', '&gt;')
+        .replaceAll('"', '&quot;')
+        .replaceAll("'", '&#39;');
+
+    const splitKeywords = (text) =>
+      text
+        .split(',')
+        .map((item) => item.trim())
+        .filter(Boolean)
+        .slice(0, 4);
+
+    const jobRoleInput = document.getElementById('job-role');
+    const jobHighlightsInput = document.getElementById('job-highlights');
+    const jobExperienceInput = document.getElementById('job-experience');
+    const jobOutput = document.getElementById('job-output');
+    const jobGenerateBtn = document.getElementById('job-generate');
+
+    jobGenerateBtn.addEventListener('click', () => {
+      const role = jobRoleInput.value.trim();
+      const highlights = splitKeywords(jobHighlightsInput.value);
+      const experience = jobExperienceInput.value.trim();
+
+      if (!role || !experience) {
+        jobOutput.style.display = 'block';
+        jobOutput.textContent = 'Add at least a role title and related experience to generate bullet ideas.';
+        return;
+      }
+
+      const focusOne = highlights[0] || 'analysis';
+      const focusTwo = highlights[1] || 'team collaboration';
+      const focusThree = highlights[2] || 'problem-solving';
+
+      jobOutput.innerHTML = `
+- Applied ${escapeHtml(focusOne)} skills in ${escapeHtml(experience)} to support ${escapeHtml(role)} goals.
+- Collaborated with peers and used ${escapeHtml(focusTwo)} to deliver project milestones on time.
+- Improved outcomes by identifying bottlenecks and using ${escapeHtml(focusThree)} to solve them.
+- Communicated results clearly through reports, presentations, or documentation.`;
+      jobOutput.style.display = 'block';
+    });
+
+    const interviewType = document.getElementById('interview-type');
+    const interviewQuestionBox = document.getElementById('interview-question');
+    const interviewAnswer = document.getElementById('interview-answer');
+    const interviewFeedback = document.getElementById('interview-feedback');
+    const interviewQuestionBtn = document.getElementById('interview-question-btn');
+    const interviewFeedbackBtn = document.getElementById('interview-feedback-btn');
+
+    const questionBank = {
+      behavioral: [
+        'Tell me about a time you handled competing deadlines.',
+        'Describe a conflict on a team and how you resolved it.',
+        'Give an example of a project where you had to learn quickly.'
+      ],
+      technical: [
+        'How would you debug a script that suddenly started failing?',
+        'Walk me through a project where you used data to make a decision.',
+        'How would you explain a technical concept to a non-technical audience?'
+      ],
+      grad: [
+        'What research interests do you want to explore in graduate school?',
+        'Tell us about a challenge in a research or course project and what you learned.',
+        'Why is this program a strong fit for your goals?'
+      ]
+    };
+
+    let currentInterviewQuestion = '';
+
+    interviewQuestionBtn.addEventListener('click', () => {
+      const pool = questionBank[interviewType.value];
+      const index = Math.floor(Math.random() * pool.length);
+      currentInterviewQuestion = pool[index];
+      interviewQuestionBox.textContent = `Practice question: ${currentInterviewQuestion}`;
+      interviewQuestionBox.style.display = 'block';
+    });
+
+    interviewFeedbackBtn.addEventListener('click', () => {
+      const answer = interviewAnswer.value.trim();
+      if (!currentInterviewQuestion) {
+        interviewFeedback.style.display = 'block';
+        interviewFeedback.textContent = 'Generate a question first, then draft your answer.';
+        return;
+      }
+
+      if (!answer) {
+        interviewFeedback.style.display = 'block';
+        interviewFeedback.textContent = 'Write a draft answer first to get feedback.';
+        return;
+      }
+
+      const wordCount = answer.split(/\s+/).filter(Boolean).length;
+      const lowerAnswer = answer.toLowerCase();
+      const hasSituation = lowerAnswer.includes('situation') || lowerAnswer.includes('context');
+      const hasAction = lowerAnswer.includes('action') || lowerAnswer.includes('i did') || lowerAnswer.includes('i decided');
+      const hasResult = lowerAnswer.includes('result') || lowerAnswer.includes('impact') || lowerAnswer.includes('outcome');
+
+      const tips = [];
+      if (wordCount < 70) tips.push('Add more detail (aim for about 70-140 words).');
+      if (wordCount > 170) tips.push('Tighten your answer and focus on one main example.');
+      if (!hasSituation) tips.push('Include a quick situation/context sentence.');
+      if (!hasAction) tips.push('Be explicit about your own actions.');
+      if (!hasResult) tips.push('End with a measurable result or takeaway.');
+      if (tips.length === 0) tips.push('Strong structure. Practice saying it out loud and trim filler words.');
+
+      interviewFeedback.textContent = `Question: ${currentInterviewQuestion}\n\nFeedback:\n- ${tips.join('\n- ')}`;
+      interviewFeedback.style.display = 'block';
+    });
+
+    const planTask = document.getElementById('plan-task');
+    const planDate = document.getElementById('plan-date');
+    const planHours = document.getElementById('plan-hours');
+    const planDaily = document.getElementById('plan-daily');
+    const planOutput = document.getElementById('plan-output');
+    const planGenerateBtn = document.getElementById('plan-generate');
+
+    planGenerateBtn.addEventListener('click', () => {
+      const task = planTask.value.trim();
+      const dueDateRaw = planDate.value;
+      const totalHours = Number(planHours.value);
+      const dailyHours = Number(planDaily.value);
+
+      if (!task || !dueDateRaw || !totalHours || !dailyHours) {
+        planOutput.style.display = 'block';
+        planOutput.textContent = 'Fill in all fields to build your plan.';
+        return;
+      }
+
+      const today = new Date();
+      today.setHours(0, 0, 0, 0);
+      const dueDate = new Date(`${dueDateRaw}T00:00:00`);
+      const msPerDay = 24 * 60 * 60 * 1000;
+      const daysUntilDue = Math.round((dueDate - today) / msPerDay);
+
+      if (daysUntilDue < 0) {
+        planOutput.style.display = 'block';
+        planOutput.textContent = 'That due date is in the past. Pick a current or future date.';
+        return;
+      }
+
+      const sessionsNeeded = Math.ceil(totalHours / dailyHours);
+      const availableDays = Math.max(daysUntilDue, 1);
+      const sessionsToSchedule = Math.min(sessionsNeeded, availableDays);
+      const hoursPerSession = (totalHours / sessionsToSchedule).toFixed(1);
+      const schedule = [];
+
+      for (let i = 0; i < sessionsToSchedule; i += 1) {
+        const slot = new Date(today);
+        slot.setDate(today.getDate() + i);
+        schedule.push(`${slot.toLocaleDateString()}: ${hoursPerSession} hrs`);
+      }
+
+      const paceNote =
+        sessionsNeeded > availableDays
+          ? 'Deadline is tight, so you may need longer daily blocks or extra support.'
+          : 'Pacing looks realistic if you stay consistent.';
+
+      planOutput.textContent = `Plan for: ${task}
+Due date: ${dueDate.toLocaleDateString()}
+Estimated effort: ${totalHours} hrs total
+
+Suggested schedule:
+${schedule.join('\n')}
+
+${paceNote}`;
+      planOutput.style.display = 'block';
     });
   </script>
 </body>

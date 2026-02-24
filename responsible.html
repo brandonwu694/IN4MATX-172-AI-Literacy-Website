@@ -111,9 +111,25 @@
       font-size: 1.4rem;
     }
 
+    .card h3 {
+      margin: 0 0 0.8rem;
+      font-size: 1.2rem;
+    }
+
     .list {
       margin: 0;
       padding-left: 1.2rem;
+      color: var(--ink-soft);
+    }
+
+    .section-title {
+      font-size: clamp(1.8rem, 3vw, 2.3rem);
+      margin: 0 0 0.8rem;
+    }
+
+    .section-lead {
+      max-width: 760px;
+      margin: 0 0 1.8rem;
       color: var(--ink-soft);
     }
 
@@ -181,7 +197,7 @@
         <div class="tag good">Responsible AI Use</div>
         <h2>Good learning habits</h2>
         <ul class="list">
-          <li>Getting feedback on an essay and revising it yourself.</li>
+          <li>Getting feedback on a personal statement and revising it yourself.</li>
           <li>Asking AI what is wrong with your code, then debugging the issue yourself.</li>
           <li>Learning new concepts and asking follow-up questions.</li>
           <li>Creating practice questions to study for a midterm.</li>
@@ -193,7 +209,7 @@
         <div class="tag bad">Unethical AI Use</div>
         <h2>Shortcuts that hurt you</h2>
         <ul class="list">
-          <li>Having AI write your entire essay.</li>
+          <li>Having AI write your entire statement of purpose.</li>
           <li>Copying AI code word-for-word and not understanding what it did.</li>
           <li>Not learning course content and having AI do all the work.</li>
           <li>Using an AI-generated response as your own content.</li>
@@ -204,14 +220,59 @@
 
     <div class="wrap">
       <div class="note">
-        Always follow your school or workplace AI policies. If you are unsure, ask your teacher, supervisor,
+        Always follow your school or workplace AI policies. If you are unsure, ask your instructor, supervisor, or academic advisor,
         or program guidelines before using AI for graded or paid work.
       </div>
     </div>
   </section>
 
+  <section aria-labelledby="survey-insights">
+    <div class="wrap">
+      <h2 class="section-title" id="survey-insights">Campus Survey Snapshot</h2>
+      <p class="section-lead">
+        Method: campus convenience survey (n=12), collected in Winter 2026. This is a small sample and reflects local perceptions.
+      </p>
+
+      <div class="grid">
+        <div class="card">
+          <h3>What students think about AI</h3>
+          <ul class="list">
+            <li>75% rated AI at 5/10 for overall positivity (mostly neutral, slightly negative-leaning).</li>
+            <li>Most respondents rated college students' ethical AI use very low (mainly 1-2 on a 1-10 scale).</li>
+            <li>Most respondents learned AI from external sources (social media, friends, online articles, and self-teaching), not formal instruction.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Key themes from responses</h3>
+          <ul class="list">
+            <li><strong>Top support needs:</strong> job applications, interview practice, and time management.</li>
+            <li><strong>Concerns:</strong> cheating, overreliance, reduced independent thinking, and less use of office hours.</li>
+            <li><strong>Balanced views:</strong> AI can be useful as a supplement when used responsibly.</li>
+            <li><strong>Benefits:</strong> breaking down difficult content and supporting personalized learning.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="note">
+        <strong>Why this matters:</strong> These responses reinforce our focus on responsible AI use.
+        AI should support learning, not replace critical thinking, honest effort, or instructor support.
+      </div>
+
+      <div class="card" style="margin-top: 1.5rem;">
+        <h3>Student Voice (selected quotes)</h3>
+        <ul class="list">
+          <li>"AI can help with self-teaching, but I sometimes skip office hours even when a TA or professor would explain it better."</li>
+          <li>"I have mostly seen AI used to cheat on assignments, and it can become a substitute for real learning."</li>
+          <li>"AI can either enhance learning or inhibit learning, depending on how it is used."</li>
+          <li>"AI is helpful for breaking down difficult content into simpler steps."</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
   <footer>
-    <p>AI Ready helps students use AI responsibly and confidently.</p>
+    <p>AI Ready helps college students use AI responsibly and confidently.</p>
     <p><a href="home.html">Return to AI Ready home</a></p>
   </footer>
 </body>
