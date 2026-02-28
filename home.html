@@ -388,6 +388,28 @@
       width: fit-content;
     }
 
+    .podcast .cta.secondary {
+      color: var(--ink);
+      border-color: rgba(11, 16, 32, 0.18);
+      background: rgba(255, 255, 255, 0.72);
+    }
+
+    .podcast .cta.secondary:hover,
+    .podcast .cta.secondary:focus-visible {
+      background: rgba(255, 255, 255, 0.9);
+    }
+
+    body[data-theme='dark'] .podcast .cta.secondary {
+      color: var(--button-secondary-text);
+      border-color: var(--button-secondary-border);
+      background: transparent;
+    }
+
+    body[data-theme='dark'] .podcast .cta.secondary:hover,
+    body[data-theme='dark'] .podcast .cta.secondary:focus-visible {
+      background: rgba(255, 255, 255, 0.08);
+    }
+
     .podcast-highlight {
       display: grid;
       gap: 1rem;
