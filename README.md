@@ -2,4 +2,4 @@
 
 - Landing page: AI Ready
 
-- To run code: `open index.html`
+- To view website on an internet browser: `open index.html`
