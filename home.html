@@ -116,6 +116,12 @@
       justify-content: space-between;
       gap: 1rem;
       flex-wrap: wrap;
+      padding: 1rem 1.15rem;
+      border-radius: 20px;
+      background: rgba(7, 18, 31, 0.24);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      box-shadow: 0 14px 32px rgba(5, 14, 24, 0.18);
+      backdrop-filter: blur(10px);
     }
 
     .logo {
@@ -203,7 +209,7 @@
     }
 
     .hero {
-      margin-top: 3.5rem;
+      margin-top: 2.25rem;
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 2rem;
@@ -226,30 +232,6 @@
       display: flex;
       flex-wrap: wrap;
       gap: 0.8rem;
-    }
-
-    .slogan-band {
-      margin-top: 1.4rem;
-      display: grid;
-      gap: 0.8rem;
-      padding: 1rem 1.1rem;
-      max-width: 620px;
-      border-radius: 18px;
-      background: rgba(11, 16, 32, 0.18);
-      border: 1px solid rgba(255, 255, 255, 0.16);
-      backdrop-filter: blur(8px);
-    }
-
-    .slogan-band strong {
-      display: block;
-      font-size: 1.05rem;
-      color: var(--hero-text);
-    }
-
-    .slogan-band p {
-      margin: 0;
-      font-size: 0.95rem;
-      color: var(--hero-muted);
     }
 
     .cta {
@@ -295,10 +277,6 @@
       box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
     }
 
-    .hero-card h3 {
-      margin: 0 0 0.8rem;
-    }
-
     .hero-image {
       width: 100%;
       display: block;
@@ -309,33 +287,24 @@
       box-shadow: 0 14px 30px rgba(0, 0, 0, 0.18);
     }
 
-    .hero-caption {
-      margin: 0 0 1rem;
-      font-size: 0.95rem;
-      color: var(--hero-muted);
-    }
-
-    .hero-card ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      display: grid;
-      gap: 0.6rem;
-      font-size: 0.98rem;
-    }
-
-    .hero-card li {
-      display: flex;
-      gap: 0.6rem;
-      align-items: center;
-    }
-
-    .hero-card span {
-      font-size: 1.1rem;
-    }
-
     section {
       padding: 4rem 1.5rem;
+    }
+
+    .section-warm {
+      background: linear-gradient(120deg, rgba(246, 193, 85, 0.08), rgba(255, 255, 255, 0.35));
+    }
+
+    .section-cool {
+      background: linear-gradient(120deg, rgba(143, 211, 255, 0.08), rgba(199, 242, 224, 0.16));
+    }
+
+    body[data-theme='dark'] .section-warm {
+      background: linear-gradient(120deg, rgba(255, 210, 116, 0.05), rgba(15, 27, 42, 0.18));
+    }
+
+    body[data-theme='dark'] .section-cool {
+      background: linear-gradient(120deg, rgba(104, 199, 232, 0.06), rgba(32, 79, 69, 0.16));
     }
 
     .section-title {
@@ -423,36 +392,12 @@
     }
 
     .podcast-logo {
-      width: 88px;
-      height: 88px;
+      width: 104px;
+      height: 104px;
       object-fit: cover;
       border-radius: 18px;
       box-shadow: 0 12px 24px rgba(11, 16, 32, 0.12);
       flex-shrink: 0;
-    }
-
-    .podcast-meta {
-      display: grid;
-      gap: 1rem;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    }
-
-    .podcast-stat {
-      padding: 1rem;
-      border-radius: 14px;
-      background: rgba(255, 255, 255, 0.55);
-      border: 1px solid rgba(15, 32, 64, 0.08);
-    }
-
-    body[data-theme='dark'] .podcast-stat {
-      background: rgba(15, 27, 42, 0.5);
-      border-color: var(--line);
-    }
-
-    .podcast-stat strong {
-      display: block;
-      margin-bottom: 0.25rem;
-      font-size: 0.95rem;
     }
 
     .podcast-actions {
@@ -647,29 +592,67 @@
     }
 
     .journey-grid {
+      position: relative;
       display: grid;
       gap: 1.2rem;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     }
 
+    .journey-grid::before {
+      content: '';
+      position: absolute;
+      top: 2.1rem;
+      left: 2rem;
+      right: 2rem;
+      height: 3px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, rgba(246, 193, 85, 0.7), rgba(13, 92, 123, 0.28));
+      z-index: 0;
+    }
+
+    body[data-theme='dark'] .journey-grid::before {
+      background: linear-gradient(90deg, rgba(255, 210, 116, 0.45), rgba(104, 199, 232, 0.22));
+    }
+
     .journey-card {
       position: relative;
-      padding-top: 3.3rem;
+      z-index: 1;
+      padding-top: 4.4rem;
+      border-top: 5px solid rgba(246, 193, 85, 0.55);
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.9));
+    }
+
+    body[data-theme='dark'] .journey-card {
+      border-top-color: rgba(255, 210, 116, 0.4);
+      background: linear-gradient(180deg, rgba(19, 33, 51, 0.92), rgba(15, 27, 42, 0.98));
     }
 
     .journey-step {
       position: absolute;
-      top: 1.2rem;
+      top: 1rem;
       left: 1.2rem;
-      width: 2rem;
-      height: 2rem;
+      width: 2.6rem;
+      height: 2.6rem;
       display: grid;
       place-items: center;
       border-radius: 999px;
       background: var(--sun);
       color: #312308;
       font-weight: 700;
-      font-size: 0.95rem;
+      font-size: 1rem;
+      box-shadow: 0 0 0 8px rgba(255, 255, 255, 0.9), 0 10px 20px rgba(11, 16, 32, 0.12);
+    }
+
+    body[data-theme='dark'] .journey-step {
+      box-shadow: 0 0 0 8px rgba(19, 33, 51, 0.94), 0 10px 20px rgba(0, 0, 0, 0.24);
+    }
+
+    .journey-card h4 {
+      margin-bottom: 0.45rem;
+    }
+
+    .journey-card p {
+      margin: 0;
     }
 
     .launch-strip {
@@ -736,6 +719,28 @@
       color: var(--ink-soft);
     }
 
+    .conversion-panel .cta.secondary {
+      color: var(--ink);
+      border-color: rgba(11, 16, 32, 0.18);
+      background: rgba(255, 255, 255, 0.78);
+    }
+
+    .conversion-panel .cta.secondary:hover,
+    .conversion-panel .cta.secondary:focus-visible {
+      background: rgba(255, 255, 255, 0.92);
+    }
+
+    body[data-theme='dark'] .conversion-panel .cta.secondary {
+      color: var(--button-secondary-text);
+      border-color: var(--button-secondary-border);
+      background: transparent;
+    }
+
+    body[data-theme='dark'] .conversion-panel .cta.secondary:hover,
+    body[data-theme='dark'] .conversion-panel .cta.secondary:focus-visible {
+      background: rgba(255, 255, 255, 0.08);
+    }
+
     footer {
       background: var(--footer-bg);
       color: var(--footer-text);
@@ -754,8 +759,12 @@
         padding-top: 3rem;
       }
 
+      .nav {
+        padding: 0.9rem 1rem;
+      }
+
       .hero {
-        margin-top: 2.5rem;
+        margin-top: 2rem;
       }
 
       .launch-inner {
@@ -776,6 +785,10 @@
 
       .podcast-heading {
         align-items: flex-start;
+      }
+
+      .journey-grid::before {
+        display: none;
       }
     }
   </style>
@@ -804,37 +817,47 @@
         <div>
           <h1>Learn AI habits that help you think, not shortcut your work</h1>
           <p>
-            Start with the podcast for short, student-friendly guidance on responsible AI use, then move into quizzes and tools that help you apply what you heard.
+            Start with the podcast, then use the quiz and tools to apply what you learn.
           </p>
           <div class="cta-group">
-            <a class="cta primary" href="https://linktr.ee/youngandhungryk_12" target="_blank" rel="noopener noreferrer">Listen to the podcast</a>
+            <a class="cta primary" href="https://linktr.ee/youngandhungryk_12" target="_blank" rel="noopener noreferrer">Listen now</a>
             <a class="cta secondary" href="#quiz">Take the AI-readiness quiz</a>
-          </div>
-          <div class="slogan-band" id="start">
-            <strong>Use AI as a tool - not a shortcut</strong>
-            <p>Start by listening, reflect on what responsible use looks like, and practice with repeatable tools built for real student work.</p>
-            <div class="cta-group">
-              <a class="cta primary" href="#podcast">Start with a featured episode</a>
-              <a class="cta secondary" href="responsible.html">Review responsible use</a>
-            </div>
           </div>
         </div>
         <div class="hero-card">
           <img class="hero-image" src="images/home_page_photo.jpg" alt="College students collaborating together" />
-          <h3>Start here</h3>
-          <p class="hero-caption">Built for students who want practical AI guidance they can discuss, test, and apply together.</p>
-          <ul>
-            <li><span>🎧</span> Short podcast guidance you can play between classes</li>
-            <li><span>🧭</span> A simple listen, reflect, practice learning path</li>
-            <li><span>🎯</span> Real examples for academics, grad school, and career prep</li>
-          </ul>
-          <a class="cta secondary" href="#podcast">Go to featured episode</a>
         </div>
       </div>
     </div>
   </header>
 
   <main id="main">
+  <section class="section-warm">
+    <div class="wrap">
+      <h2 class="section-title">Why AI skills matter now</h2>
+      <p class="section-lead">
+        AI is becoming a basic academic skill. Students are expected to use AI tools to research,
+        summarize, and brainstorm. The key skill is not learning to code AI, but knowing how to ask
+        good questions and use it responsibly. With rapid AI advancements, AI skills are no longer
+        optional. They are becoming a core life skill, similar to writing, math, or using computers.
+      </p>
+      <div class="grid">
+        <div class="card">
+          <h4>Smarter studying</h4>
+          <p>Turn long readings into quick notes and practice questions you can review on your phone.</p>
+        </div>
+        <div class="card">
+          <h4>Sharper thinking</h4>
+          <p>AI helps you brainstorm, but you still choose the best ideas and facts.</p>
+        </div>
+        <div class="card">
+          <h4>Future-ready</h4>
+          <p>Graduate programs and employers want students who can use AI tools responsibly.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="podcast" id="podcast">
     <div class="wrap">
       <div class="card">
@@ -844,30 +867,12 @@
             <div>
               <h2 class="section-title">Start with Dr. Young's Podcast</h2>
               <p class="section-lead">
-                This is the front door of the site: short, student-friendly audio that introduces responsible AI use before you move into quizzes and practice tools.
+                Short, student-friendly audio that frames the rest of the site.
               </p>
-            </div>
-          </div>
-          <div class="podcast-meta">
-            <div class="podcast-stat">
-              <strong>Best first step</strong>
-              <p>Listen before taking the quiz so you have a clear frame for what responsible use looks like.</p>
-            </div>
-            <div class="podcast-stat">
-              <strong>What you'll hear</strong>
-              <p>College-ready examples about studying, applications, and career preparation with AI.</p>
-            </div>
-            <div class="podcast-stat">
-              <strong>Then do this</strong>
-              <p>After listening, use the quiz and practice activities to apply the ideas to your own work.</p>
             </div>
           </div>
         </div>
         <div>
-          <h3 style="margin-top: 0;">Featured starting point</h3>
-          <p class="section-lead">
-            Begin with the podcast, then continue through the rest of the page. Treat it as the guided introduction for everything that follows.
-          </p>
           <div class="podcast-actions">
             <a class="cta primary" href="https://linktr.ee/youngandhungryk_12" target="_blank" rel="noopener noreferrer">Listen now</a>
             <a class="cta secondary" href="#quiz">Listen, then take the quiz</a>
@@ -910,33 +915,7 @@
     </div>
   </section>
 
-  <section>
-    <div class="wrap">
-      <h2 class="section-title">Why AI skills matter now</h2>
-      <p class="section-lead">
-        AI is becoming a basic academic skill. Students are expected to use AI tools to research,
-        summarize, and brainstorm. The key skill is not learning to code AI, but knowing how to ask
-        good questions and use it responsibly. With rapid AI advancements, AI skills are no longer
-        optional. They are becoming a core life skill, similar to writing, math, or using computers.
-      </p>
-      <div class="grid">
-        <div class="card">
-          <h4>Smarter studying</h4>
-          <p>Turn long readings into quick notes and practice questions you can review on your phone.</p>
-        </div>
-        <div class="card">
-          <h4>Sharper thinking</h4>
-          <p>AI helps you brainstorm, but you still choose the best ideas and facts.</p>
-        </div>
-        <div class="card">
-          <h4>Future-ready</h4>
-          <p>Graduate programs and employers want students who can use AI tools responsibly.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="quiz">
+  <section class="section-cool" id="quiz">
     <div class="wrap">
       <h2 class="section-title">AI-readiness quiz</h2>
       <p class="section-lead">Answer these quick questions to see how prepared you are. New here? Listen to the podcast first, then take the quiz and explore the sections below.</p>
@@ -977,7 +956,7 @@
     </div>
   </section>
 
-  <section id="topics">
+  <section class="section-warm" id="topics">
     <div class="wrap">
       <h2 class="section-title">Key topics for college students</h2>
       <p class="section-lead">
@@ -1004,7 +983,7 @@
     </div>
   </section>
 
-  <section id="activities">
+  <section class="section-cool" id="activities">
     <div class="wrap">
       <h2 class="section-title">Practice Activities</h2>
       <p class="section-lead">
@@ -1070,7 +1049,7 @@
           <p>Start with the podcast, then use the quiz and practice tools to apply the same standard to your own work.</p>
         </div>
         <div class="cta-group">
-          <a class="cta primary" href="https://linktr.ee/youngandhungryk_12" target="_blank" rel="noopener noreferrer">Listen to the podcast</a>
+          <a class="cta primary" href="https://linktr.ee/youngandhungryk_12" target="_blank" rel="noopener noreferrer">Listen now</a>
           <a class="cta secondary" href="#quiz">Take the quiz after listening</a>
         </div>
       </div>
