@@ -18,13 +18,47 @@
     :root {
       --ink: #0b1020;
       --ink-soft: #1f2a44;
-      --sand: #f7f4ef;
       --mint: #c7f2e0;
       --ocean: #0d5c7b;
       --sun: #f6c155;
       --coral: #ef6f5a;
       --card: #ffffff;
+      --surface: #fefcf8;
+      --surface-strong: #ffffff;
+      --line: rgba(15, 32, 64, 0.08);
+      --line-strong: rgba(13, 92, 123, 0.2);
+      --hero-text: #fef6e9;
+      --hero-muted: rgba(255, 255, 255, 0.9);
+      --button-secondary-border: rgba(255, 255, 255, 0.4);
+      --button-secondary-text: #fef6e9;
+      --tool-output-bg: #fefcf8;
+      --footer-bg: #0f1c2b;
+      --footer-text: #e7edf6;
+      --page-gradient: radial-gradient(circle at top left, #ffffff 0%, #f5f1eb 45%, #e8f4f0 100%);
       --shadow: 0 20px 50px rgba(11, 16, 32, 0.18);
+    }
+
+    body[data-theme='dark'] {
+      --ink: #eef4ff;
+      --ink-soft: #bfd0e4;
+      --mint: #204f45;
+      --ocean: #68c7e8;
+      --sun: #ffd274;
+      --coral: #ff988a;
+      --card: #132133;
+      --surface: #16263a;
+      --surface-strong: #0f1b2a;
+      --line: rgba(167, 194, 221, 0.14);
+      --line-strong: rgba(104, 199, 232, 0.28);
+      --hero-text: #f4f8ff;
+      --hero-muted: rgba(244, 248, 255, 0.86);
+      --button-secondary-border: rgba(244, 248, 255, 0.35);
+      --button-secondary-text: #f4f8ff;
+      --tool-output-bg: #0f1b2a;
+      --footer-bg: #09111c;
+      --footer-text: #dce8f8;
+      --page-gradient: radial-gradient(circle at top left, #16243a 0%, #0d1725 50%, #09111c 100%);
+      --shadow: 0 22px 50px rgba(0, 0, 0, 0.35);
     }
 
     * {
@@ -35,8 +69,9 @@
       margin: 0;
       font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
       color: var(--ink);
-      background: radial-gradient(circle at top left, #ffffff 0%, #f5f1eb 45%, #e8f4f0 100%);
+      background: var(--page-gradient);
       line-height: 1.6;
+      transition: background 0.25s ease, color 0.25s ease;
     }
 
     header {
@@ -44,7 +79,7 @@
       overflow: hidden;
       padding: 4rem 1.5rem 5rem;
       background: linear-gradient(125deg, #10364f 0%, #0d5c7b 45%, #0f7a7a 100%);
-      color: #fef6e9;
+      color: var(--hero-text);
     }
 
     header::before,
@@ -97,7 +132,7 @@
     }
 
     .nav-links a {
-      color: #fef6e9;
+      color: var(--hero-text);
       text-decoration: none;
       font-weight: 600;
       font-size: 0.95rem;
@@ -109,6 +144,13 @@
     .nav-links a:focus-visible {
       border-bottom-color: rgba(254, 246, 233, 0.8);
       outline: none;
+    }
+
+    .nav-actions {
+      display: flex;
+      gap: 0.75rem;
+      align-items: center;
+      flex-wrap: wrap;
     }
 
     .skip-link {
@@ -141,6 +183,25 @@
       font-size: 0.9rem;
     }
 
+    .theme-toggle {
+      border: 1px solid var(--button-secondary-border);
+      background: transparent;
+      color: var(--button-secondary-text);
+      border-radius: 999px;
+      padding: 0.45rem 0.9rem;
+      font: inherit;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+
+    .theme-toggle:hover,
+    .theme-toggle:focus-visible {
+      transform: translateY(-1px);
+      background: rgba(255, 255, 255, 0.08);
+      outline: none;
+    }
+
     .hero {
       margin-top: 3.5rem;
       display: grid;
@@ -158,13 +219,37 @@
     .hero p {
       font-size: 1.05rem;
       margin: 0 0 1.5rem;
-      color: rgba(255, 255, 255, 0.9);
+      color: var(--hero-muted);
     }
 
     .cta-group {
       display: flex;
       flex-wrap: wrap;
       gap: 0.8rem;
+    }
+
+    .slogan-band {
+      margin-top: 1.4rem;
+      display: grid;
+      gap: 0.8rem;
+      padding: 1rem 1.1rem;
+      max-width: 620px;
+      border-radius: 18px;
+      background: rgba(11, 16, 32, 0.18);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      backdrop-filter: blur(8px);
+    }
+
+    .slogan-band strong {
+      display: block;
+      font-size: 1.05rem;
+      color: var(--hero-text);
+    }
+
+    .slogan-band p {
+      margin: 0;
+      font-size: 0.95rem;
+      color: var(--hero-muted);
     }
 
     .cta {
@@ -187,8 +272,8 @@
 
     .cta.secondary {
       background: transparent;
-      color: #fef6e9;
-      border: 1px solid rgba(255, 255, 255, 0.4);
+      color: var(--button-secondary-text);
+      border: 1px solid var(--button-secondary-border);
     }
 
     .cta:hover,
@@ -197,7 +282,7 @@
     }
 
     .cta:focus-visible {
-      outline: 2px solid #fef6e9;
+      outline: 2px solid var(--hero-text);
       outline-offset: 2px;
     }
 
@@ -212,6 +297,22 @@
 
     .hero-card h3 {
       margin: 0 0 0.8rem;
+    }
+
+    .hero-image {
+      width: 100%;
+      display: block;
+      aspect-ratio: 16 / 10;
+      object-fit: cover;
+      border-radius: 14px;
+      margin-bottom: 1rem;
+      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.18);
+    }
+
+    .hero-caption {
+      margin: 0 0 1rem;
+      font-size: 0.95rem;
+      color: var(--hero-muted);
     }
 
     .hero-card ul {
@@ -259,7 +360,8 @@
       border-radius: 18px;
       padding: 1.5rem;
       box-shadow: var(--shadow);
-      border: 1px solid rgba(15, 32, 64, 0.08);
+      border: 1px solid var(--line);
+      transition: background 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
     }
 
     .card h4 {
@@ -286,6 +388,96 @@
       width: fit-content;
     }
 
+    .podcast-highlight {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .podcast-heading {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .podcast-logo {
+      width: 88px;
+      height: 88px;
+      object-fit: cover;
+      border-radius: 18px;
+      box-shadow: 0 12px 24px rgba(11, 16, 32, 0.12);
+      flex-shrink: 0;
+    }
+
+    .podcast-meta {
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    }
+
+    .podcast-stat {
+      padding: 1rem;
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.55);
+      border: 1px solid rgba(15, 32, 64, 0.08);
+    }
+
+    body[data-theme='dark'] .podcast-stat {
+      background: rgba(15, 27, 42, 0.5);
+      border-color: var(--line);
+    }
+
+    .podcast-stat strong {
+      display: block;
+      margin-bottom: 0.25rem;
+      font-size: 0.95rem;
+    }
+
+    .podcast-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+    }
+
+    .about-professor {
+      margin-top: 1.25rem;
+      padding: 1.25rem;
+      display: grid;
+      gap: 1rem;
+      align-items: center;
+      grid-template-columns: minmax(120px, 160px) 1fr;
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.48);
+      border: 1px solid rgba(15, 32, 64, 0.08);
+    }
+
+    body[data-theme='dark'] .about-professor {
+      background: rgba(15, 27, 42, 0.48);
+      border-color: var(--line);
+    }
+
+    .about-professor h3 {
+      margin: 0 0 0.5rem;
+    }
+
+    .about-professor p {
+      margin: 0;
+      color: var(--ink-soft);
+    }
+
+    .professor-photo {
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      border-radius: 14px;
+      box-shadow: 0 12px 26px rgba(11, 16, 32, 0.16);
+    }
+
+    .about-professor-copy {
+      display: grid;
+      gap: 0.5rem;
+    }
+
     .highlight {
       background: linear-gradient(120deg, rgba(246, 193, 85, 0.4), rgba(199, 242, 224, 0.6));
       padding: 0.1rem 0.3rem;
@@ -299,10 +491,10 @@
     }
 
     .quiz fieldset {
-      border: 1px solid rgba(13, 92, 123, 0.2);
+      border: 1px solid var(--line-strong);
       border-radius: 14px;
       padding: 1rem 1.3rem 1.2rem;
-      background: #fefcf8;
+      background: var(--surface);
     }
 
     .quiz legend {
@@ -388,11 +580,11 @@
     .tool textarea,
     .tool select {
       width: 100%;
-      border: 1px solid rgba(13, 92, 123, 0.25);
+      border: 1px solid var(--line-strong);
       border-radius: 10px;
       padding: 0.65rem 0.75rem;
       font: inherit;
-      background: #ffffff;
+      background: var(--surface-strong);
       color: var(--ink);
     }
 
@@ -418,18 +610,117 @@
       margin-top: 0.4rem;
       padding: 0.9rem 1rem;
       border-radius: 12px;
-      background: #fefcf8;
-      border: 1px solid rgba(13, 92, 123, 0.2);
+      background: var(--tool-output-bg);
+      border: 1px solid var(--line-strong);
       color: var(--ink-soft);
       white-space: pre-line;
     }
 
+    .journey {
+      background: linear-gradient(120deg, rgba(13, 92, 123, 0.1), rgba(199, 242, 224, 0.28));
+    }
+
+    body[data-theme='dark'] .journey {
+      background: linear-gradient(120deg, rgba(104, 199, 232, 0.08), rgba(32, 79, 69, 0.25));
+    }
+
+    .journey-grid {
+      display: grid;
+      gap: 1.2rem;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    }
+
+    .journey-card {
+      position: relative;
+      padding-top: 3.3rem;
+    }
+
+    .journey-step {
+      position: absolute;
+      top: 1.2rem;
+      left: 1.2rem;
+      width: 2rem;
+      height: 2rem;
+      display: grid;
+      place-items: center;
+      border-radius: 999px;
+      background: var(--sun);
+      color: #312308;
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+
+    .launch-strip {
+      position: sticky;
+      bottom: 0;
+      z-index: 20;
+      padding: 0.9rem 1.2rem;
+      background: rgba(11, 16, 32, 0.92);
+      color: #f4f8ff;
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(10px);
+    }
+
+    body[data-theme='dark'] .launch-strip {
+      background: rgba(9, 17, 28, 0.94);
+    }
+
+    .launch-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    .launch-copy {
+      max-width: 640px;
+    }
+
+    .launch-copy strong {
+      display: block;
+      font-size: 1rem;
+    }
+
+    .launch-copy span {
+      color: rgba(244, 248, 255, 0.78);
+      font-size: 0.92rem;
+    }
+
+    .launch-strip .cta {
+      min-width: 180px;
+    }
+
+    .conversion {
+      padding-top: 1rem;
+    }
+
+    .conversion-panel {
+      display: grid;
+      gap: 1.5rem;
+      align-items: center;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      background: linear-gradient(120deg, rgba(246, 193, 85, 0.18), rgba(13, 92, 123, 0.12));
+    }
+
+    body[data-theme='dark'] .conversion-panel {
+      background: linear-gradient(120deg, rgba(255, 210, 116, 0.12), rgba(104, 199, 232, 0.12));
+    }
+
+    .conversion-panel p {
+      margin: 0;
+      color: var(--ink-soft);
+    }
+
     footer {
-      background: #0f1c2b;
-      color: #e7edf6;
+      background: var(--footer-bg);
+      color: var(--footer-text);
       padding: 2.5rem 1.5rem;
       text-align: center;
       font-size: 0.95rem;
+      transition: background 0.25s ease, color 0.25s ease;
     }
 
     footer p {
@@ -444,6 +735,26 @@
       .hero {
         margin-top: 2.5rem;
       }
+
+      .launch-inner {
+        align-items: stretch;
+      }
+
+      .launch-strip .cta {
+        width: 100%;
+      }
+
+      .about-professor {
+        grid-template-columns: 1fr;
+      }
+
+      .professor-photo {
+        max-width: 220px;
+      }
+
+      .podcast-heading {
+        align-items: flex-start;
+      }
     }
   </style>
 </head>
@@ -453,36 +764,49 @@
     <div class="wrap">
       <nav class="nav">
         <div class="logo">AI Ready</div>
-        <div class="pill">Built for college students • 100% free</div>
+        <div class="nav-actions">
+          <div class="pill">Built for college students • 100% free</div>
+          <button class="theme-toggle" id="theme-toggle" type="button" aria-pressed="false">Dark mode</button>
+        </div>
         <div class="nav-links" aria-label="Primary">
+          <a href="#podcast">Podcast</a>
+          <a href="#path">Your path</a>
           <a href="#quiz">Quiz</a>
           <a href="#topics">Key topics</a>
           <a href="#activities">Activities</a>
-          <a href="#podcast">Podcast</a>
           <a href="responsible.html">Responsible use</a>
         </div>
       </nav>
 
       <div class="hero">
         <div>
-          <h1>AI Ready</h1>
+          <h1>Learn AI habits that help you think, not shortcut your work</h1>
           <p>
-            A free, self-paced guide to using AI for classes, grad school or PhD applications, and future jobs.
-            Learn to ask great questions, get better results, and stay responsible with AI tools.
+            Start with the podcast for short, student-friendly guidance on responsible AI use, then move into quizzes and tools that help you apply what you heard.
           </p>
-      <div class="cta-group">
-        <a class="cta primary" href="#quiz">Take the AI-readiness quiz</a>
-        <a class="cta secondary" href="#topics">See key topics</a>
-      </div>
-    </div>
-    <div class="hero-card">
-      <h3>What you get</h3>
-      <ul>
-            <li><span>📱</span> Mobile-friendly lessons for busy schedules</li>
-            <li><span>🧭</span> Step-by-step practice you can repeat anytime</li>
-            <li><span>🎯</span> Focused on real college goals: academics, grad school, careers</li>
+          <div class="cta-group">
+            <a class="cta primary" href="https://linktr.ee/youngandhungryk_12" target="_blank" rel="noopener noreferrer">Listen to the podcast</a>
+            <a class="cta secondary" href="#quiz">Take the AI-readiness quiz</a>
+          </div>
+          <div class="slogan-band" id="start">
+            <strong>Use AI as a tool - not a shortcut</strong>
+            <p>Start by listening, reflect on what responsible use looks like, and practice with repeatable tools built for real student work.</p>
+            <div class="cta-group">
+              <a class="cta primary" href="#podcast">Start with a featured episode</a>
+              <a class="cta secondary" href="responsible.html">Review responsible use</a>
+            </div>
+          </div>
+        </div>
+        <div class="hero-card">
+          <img class="hero-image" src="images/home_page_photo.jpg" alt="College students collaborating together" />
+          <h3>Start here</h3>
+          <p class="hero-caption">Built for students who want practical AI guidance they can discuss, test, and apply together.</p>
+          <ul>
+            <li><span>🎧</span> Short podcast guidance you can play between classes</li>
+            <li><span>🧭</span> A simple listen, reflect, practice learning path</li>
+            <li><span>🎯</span> Real examples for academics, grad school, and career prep</li>
           </ul>
-          <a class="cta secondary" href="responsible.html">Responsible AI use guide</a>
+          <a class="cta secondary" href="#podcast">Go to featured episode</a>
         </div>
       </div>
     </div>
@@ -492,14 +816,73 @@
   <section class="podcast" id="podcast">
     <div class="wrap">
       <div class="card">
-        <div>
-          <h2 class="section-title">Dr. Young's Podcast</h2>
-          <p class="section-lead">
-            Short, student-friendly conversations on AI, college success, and preparing for grad school or career paths.
-          </p>
+        <div class="podcast-highlight">
+          <div class="podcast-heading">
+            <img class="podcast-logo" src="images/podcast_logo.png" alt="Young and Hungry podcast logo" />
+            <div>
+              <h2 class="section-title">Start with Dr. Young's Podcast</h2>
+              <p class="section-lead">
+                This is the front door of the site: short, student-friendly audio that introduces responsible AI use before you move into quizzes and practice tools.
+              </p>
+            </div>
+          </div>
+          <div class="podcast-meta">
+            <div class="podcast-stat">
+              <strong>Best first step</strong>
+              <p>Listen before taking the quiz so you have a clear frame for what responsible use looks like.</p>
+            </div>
+            <div class="podcast-stat">
+              <strong>What you'll hear</strong>
+              <p>College-ready examples about studying, applications, and career preparation with AI.</p>
+            </div>
+            <div class="podcast-stat">
+              <strong>Then do this</strong>
+              <p>After listening, use the quiz and practice activities to apply the ideas to your own work.</p>
+            </div>
+          </div>
         </div>
         <div>
-          <a class="cta primary" href="https://linktr.ee/youngandhungryk_12" target="_blank" rel="noopener noreferrer">Podcast links</a>
+          <h3 style="margin-top: 0;">Featured starting point</h3>
+          <p class="section-lead">
+            Begin with the podcast, then continue through the rest of the page. Treat it as the guided introduction for everything that follows.
+          </p>
+          <div class="podcast-actions">
+            <a class="cta primary" href="https://linktr.ee/youngandhungryk_12" target="_blank" rel="noopener noreferrer">Listen now</a>
+            <a class="cta secondary" href="#quiz">Listen, then take the quiz</a>
+          </div>
+          <div class="about-professor">
+            <img class="professor-photo" src="images/sean_young.jpg" alt="Sean D. Young, PhD" />
+            <div class="about-professor-copy">
+              <h3>About Dr. Sean D. Young</h3>
+              <p>Sean D. Young, PhD, MS, is the Executive Director of the University of California Institute for Prediction Technology, Executive Director of the Center for Digital Behavior, a medical school and informatics professor with UCI's Departments of Emergency Medicine and Informatics, and the author of the #1 Wall Street Journal and international best-selling book <em>Stick With It</em>.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="journey" id="path">
+    <div class="wrap">
+      <h2 class="section-title">A clear path to using AI well</h2>
+      <p class="section-lead">
+        Follow a simple sequence from listening to reflection to responsible practice.
+      </p>
+      <div class="journey-grid">
+        <div class="card journey-card">
+          <div class="journey-step">1</div>
+          <h4>Listen first</h4>
+          <p>Start with the podcast so the ideas feel grounded in student life before you evaluate your own habits.</p>
+        </div>
+        <div class="card journey-card">
+          <div class="journey-step">2</div>
+          <h4>Reflect on your habits</h4>
+          <p>Use the quiz and responsible-use guide to separate productive support from shortcuts that weaken learning.</p>
+        </div>
+        <div class="card journey-card">
+          <div class="journey-step">3</div>
+          <h4>Practice on real tasks</h4>
+          <p>Move into activities for applications, interviews, and time planning so the podcast advice becomes usable.</p>
         </div>
       </div>
     </div>
@@ -534,7 +917,7 @@
   <section id="quiz">
     <div class="wrap">
       <h2 class="section-title">AI-readiness quiz</h2>
-      <p class="section-lead">Answer these quick questions to see how prepared you are. New here? Start with the quiz, then explore the sections below.</p>
+      <p class="section-lead">Answer these quick questions to see how prepared you are. New here? Listen to the podcast first, then take the quiz and explore the sections below.</p>
       <form class="quiz" id="ai-quiz">
         <fieldset>
           <legend>1. When you use AI, how do you check if the information is correct?</legend>
@@ -657,14 +1040,59 @@
     </div>
   </section>
 
+  <section class="conversion" aria-labelledby="conversion-title">
+    <div class="wrap">
+      <div class="card conversion-panel">
+        <div>
+          <h2 class="section-title" id="conversion-title">Use AI as a tool - not a shortcut</h2>
+          <p>Start with the podcast, then use the quiz and practice tools to apply the same standard to your own work.</p>
+        </div>
+        <div class="cta-group">
+          <a class="cta primary" href="https://linktr.ee/youngandhungryk_12" target="_blank" rel="noopener noreferrer">Listen to the podcast</a>
+          <a class="cta secondary" href="#quiz">Take the quiz after listening</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <footer>
     <p>AI Ready is designed for college students preparing for graduate study and the workforce.</p>
     <p>Always follow your school or workplace AI guidelines.</p>
-    <p><a href="responsible.html" style="color: #e7edf6;">Responsible AI use guide</a></p>
+    <p><a href="https://linktr.ee/youngandhungryk_12" target="_blank" rel="noopener noreferrer" style="color: inherit;">Listen to Dr. Young's Podcast</a></p>
+    <p><a href="responsible.html" style="color: inherit;">Responsible AI use guide</a></p>
+    <p>&copy; 2026 AI Ready. All rights reserved. Built for students, by educators.</p>
   </footer>
   </main>
 
+  <div class="launch-strip" aria-label="Primary action">
+    <div class="launch-inner">
+      <div class="launch-copy">
+        <strong>Use AI as a tool - not a shortcut</strong>
+        <span>Begin with the podcast, then use the quiz and activities to apply what you learned.</span>
+      </div>
+      <a class="cta primary" href="https://linktr.ee/youngandhungryk_12" target="_blank" rel="noopener noreferrer">Listen now</a>
+    </div>
+  </div>
+
   <script>
+    const themeToggle = document.getElementById('theme-toggle');
+    const savedTheme = localStorage.getItem('ai-ready-theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+    const applyTheme = (theme) => {
+      document.body.dataset.theme = theme;
+      themeToggle.textContent = theme === 'dark' ? 'Light mode' : 'Dark mode';
+      themeToggle.setAttribute('aria-pressed', String(theme === 'dark'));
+    };
+
+    applyTheme(savedTheme || (prefersDark ? 'dark' : 'light'));
+
+    themeToggle.addEventListener('click', () => {
+      const nextTheme = document.body.dataset.theme === 'dark' ? 'light' : 'dark';
+      applyTheme(nextTheme);
+      localStorage.setItem('ai-ready-theme', nextTheme);
+    });
+
     const quiz = document.getElementById('ai-quiz');
     const result = document.getElementById('quiz-result');
 

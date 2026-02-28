@@ -18,13 +18,43 @@
     :root {
       --ink: #0b1020;
       --ink-soft: #1f2a44;
-      --sand: #f7f4ef;
       --mint: #c7f2e0;
       --ocean: #0d5c7b;
       --sun: #f6c155;
       --coral: #ef6f5a;
       --card: #ffffff;
+      --surface: #fefcf8;
+      --line: rgba(15, 32, 64, 0.08);
+      --line-strong: rgba(13, 92, 123, 0.15);
+      --hero-text: #fef6e9;
+      --hero-muted: rgba(255, 255, 255, 0.9);
+      --button-secondary-border: rgba(255, 255, 255, 0.4);
+      --button-secondary-text: #fef6e9;
+      --footer-bg: #0f1c2b;
+      --footer-text: #e7edf6;
+      --page-gradient: radial-gradient(circle at top left, #ffffff 0%, #f5f1eb 45%, #e8f4f0 100%);
       --shadow: 0 20px 50px rgba(11, 16, 32, 0.18);
+    }
+
+    body[data-theme='dark'] {
+      --ink: #eef4ff;
+      --ink-soft: #bfd0e4;
+      --mint: #204f45;
+      --ocean: #68c7e8;
+      --sun: #ffd274;
+      --coral: #ff988a;
+      --card: #132133;
+      --surface: #16263a;
+      --line: rgba(167, 194, 221, 0.14);
+      --line-strong: rgba(104, 199, 232, 0.26);
+      --hero-text: #f4f8ff;
+      --hero-muted: rgba(244, 248, 255, 0.86);
+      --button-secondary-border: rgba(244, 248, 255, 0.35);
+      --button-secondary-text: #f4f8ff;
+      --footer-bg: #09111c;
+      --footer-text: #dce8f8;
+      --page-gradient: radial-gradient(circle at top left, #16243a 0%, #0d1725 50%, #09111c 100%);
+      --shadow: 0 22px 50px rgba(0, 0, 0, 0.35);
     }
 
     * {
@@ -35,14 +65,15 @@
       margin: 0;
       font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
       color: var(--ink);
-      background: radial-gradient(circle at top left, #ffffff 0%, #f5f1eb 45%, #e8f4f0 100%);
+      background: var(--page-gradient);
       line-height: 1.6;
+      transition: background 0.25s ease, color 0.25s ease;
     }
 
     header {
       padding: 3.5rem 1.5rem 2.5rem;
       background: linear-gradient(125deg, #10364f 0%, #0d5c7b 45%, #0f7a7a 100%);
-      color: #fef6e9;
+      color: var(--hero-text);
     }
 
     .wrap {
@@ -58,6 +89,13 @@
       flex-wrap: wrap;
     }
 
+    .nav-actions {
+      display: flex;
+      gap: 0.75rem;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
     .logo {
       font-weight: 700;
       letter-spacing: 0.5px;
@@ -65,17 +103,36 @@
     }
 
     .back {
-      color: #fef6e9;
+      color: var(--hero-text);
       text-decoration: none;
-      border: 1px solid rgba(255, 255, 255, 0.4);
+      border: 1px solid var(--button-secondary-border);
       padding: 0.5rem 1rem;
       border-radius: 999px;
       font-weight: 600;
     }
 
     .back:focus-visible {
-      outline: 2px solid #fef6e9;
+      outline: 2px solid var(--hero-text);
       outline-offset: 2px;
+    }
+
+    .theme-toggle {
+      border: 1px solid var(--button-secondary-border);
+      background: transparent;
+      color: var(--button-secondary-text);
+      border-radius: 999px;
+      padding: 0.45rem 0.9rem;
+      font: inherit;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+
+    .theme-toggle:hover,
+    .theme-toggle:focus-visible {
+      transform: translateY(-1px);
+      background: rgba(255, 255, 255, 0.08);
+      outline: none;
     }
 
     h1 {
@@ -85,7 +142,45 @@
 
     .lead {
       max-width: 720px;
-      color: rgba(255, 255, 255, 0.9);
+      color: var(--hero-muted);
+    }
+
+    .hero-cta {
+      margin-top: 1.3rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      align-items: center;
+    }
+
+    .cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.8rem 1.35rem;
+      border-radius: 12px;
+      border: none;
+      font-weight: 600;
+      text-decoration: none;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .cta.primary {
+      background: var(--sun);
+      color: #312308;
+      box-shadow: 0 15px 30px rgba(246, 193, 85, 0.35);
+    }
+
+    .cta.secondary {
+      background: transparent;
+      color: var(--button-secondary-text);
+      border: 1px solid var(--button-secondary-border);
+    }
+
+    .cta:hover,
+    .cta:focus-visible {
+      transform: translateY(-2px);
+      outline: none;
     }
 
     section {
@@ -103,7 +198,8 @@
       border-radius: 18px;
       padding: 1.5rem;
       box-shadow: var(--shadow);
-      border: 1px solid rgba(15, 32, 64, 0.08);
+      border: 1px solid var(--line);
+      transition: background 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
     }
 
     .card h2 {
@@ -155,24 +251,42 @@
     }
 
     .note {
-      background: #fefcf8;
+      background: var(--surface);
       border-radius: 16px;
       padding: 1.2rem 1.4rem;
-      border: 1px solid rgba(13, 92, 123, 0.15);
+      border: 1px solid var(--line-strong);
       color: var(--ink-soft);
       margin-top: 2rem;
     }
 
+    .action-panel {
+      display: grid;
+      gap: 1.2rem;
+      align-items: center;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      background: linear-gradient(120deg, rgba(246, 193, 85, 0.18), rgba(13, 92, 123, 0.12));
+    }
+
+    body[data-theme='dark'] .action-panel {
+      background: linear-gradient(120deg, rgba(255, 210, 116, 0.12), rgba(104, 199, 232, 0.12));
+    }
+
+    .action-panel p {
+      margin: 0;
+      color: var(--ink-soft);
+    }
+
     footer {
-      background: #0f1c2b;
-      color: #e7edf6;
+      background: var(--footer-bg);
+      color: var(--footer-text);
       padding: 2rem 1.5rem;
       text-align: center;
       font-size: 0.95rem;
+      transition: background 0.25s ease, color 0.25s ease;
     }
 
     footer a {
-      color: #e7edf6;
+      color: inherit;
     }
   </style>
 </head>
@@ -181,13 +295,20 @@
     <div class="wrap">
       <nav class="nav">
         <div class="logo">AI Ready</div>
-        <a class="back" href="home.html">Back to home</a>
+        <div class="nav-actions">
+          <button class="theme-toggle" id="theme-toggle" type="button" aria-pressed="false">Dark mode</button>
+          <a class="back" href="home.html">Back to home</a>
+        </div>
       </nav>
       <h1>Responsible vs. Unethical AI Use</h1>
       <p class="lead">
         Use AI to learn faster, not to replace your work. These examples make it clear what helps you grow
         and what crosses the line.
       </p>
+      <div class="hero-cta">
+        <a class="cta primary" href="https://linktr.ee/youngandhungryk_12" target="_blank" rel="noopener noreferrer">Listen to the podcast</a>
+        <a class="cta secondary" href="home.html#activities">Practice the skills</a>
+      </div>
     </div>
   </header>
 
@@ -268,12 +389,45 @@
           <li>"AI is helpful for breaking down difficult content into simpler steps."</li>
         </ul>
       </div>
+
+      <div class="card action-panel" style="margin-top: 1.5rem;">
+        <div>
+          <h3>Turn this into action</h3>
+          <p>Use these examples as a standard, then start with the podcast and return to the main page to practice with tools designed for real student work.</p>
+        </div>
+        <div class="hero-cta" style="margin-top: 0;">
+          <a class="cta primary" href="https://linktr.ee/youngandhungryk_12" target="_blank" rel="noopener noreferrer">Start with the podcast</a>
+          <a class="cta secondary" href="home.html#activities">Go to practice tools</a>
+        </div>
+      </div>
     </div>
   </section>
 
   <footer>
     <p>AI Ready helps college students use AI responsibly and confidently.</p>
+    <p><a href="https://linktr.ee/youngandhungryk_12" target="_blank" rel="noopener noreferrer">Listen to Dr. Young's Podcast</a></p>
     <p><a href="home.html">Return to AI Ready home</a></p>
+    <p>&copy; 2026 AI Ready. All rights reserved. Built for students, by educators.</p>
   </footer>
+
+  <script>
+    const themeToggle = document.getElementById('theme-toggle');
+    const savedTheme = localStorage.getItem('ai-ready-theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+    const applyTheme = (theme) => {
+      document.body.dataset.theme = theme;
+      themeToggle.textContent = theme === 'dark' ? 'Light mode' : 'Dark mode';
+      themeToggle.setAttribute('aria-pressed', String(theme === 'dark'));
+    };
+
+    applyTheme(savedTheme || (prefersDark ? 'dark' : 'light'));
+
+    themeToggle.addEventListener('click', () => {
+      const nextTheme = document.body.dataset.theme === 'dark' ? 'light' : 'dark';
+      applyTheme(nextTheme);
+      localStorage.setItem('ai-ready-theme', nextTheme);
+    });
+  </script>
 </body>
 </html>
