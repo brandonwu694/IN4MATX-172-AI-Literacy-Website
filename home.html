@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="AI Ready is a free, self-paced, mobile-friendly guide to AI skills for college students." />
-  <meta property="og:title" content="AI Ready" />
+  <meta name="description" content="AI'm Ready is a free, self-paced, mobile-friendly guide to AI skills for college students." />
+  <meta property="og:title" content="AI'm Ready" />
   <meta property="og:description" content="A free, self-paced, mobile-friendly guide to AI skills for college students." />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="favicon.svg" />
-  <title>AI Ready</title>
+  <title>AI'm Ready</title>
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -216,6 +216,31 @@
       align-items: center;
     }
 
+    .hero-hook {
+      display: inline-grid;
+      gap: 0.2rem;
+      margin: 0 0 1rem;
+      padding: 0.55rem 0.9rem;
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      backdrop-filter: blur(6px);
+    }
+
+    .hero-hook-ask {
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: rgba(254, 246, 233, 0.82);
+    }
+
+    .hero-hook-answer {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--hero-text);
+    }
+
     h1 {
       font-size: clamp(2.5rem, 4vw, 3.4rem);
       margin: 0 0 1rem;
@@ -340,6 +365,64 @@
     .card p {
       margin: 0;
       color: var(--ink-soft);
+    }
+
+    .why-ai-grid {
+      margin-top: 0.35rem;
+    }
+
+    .why-ai-card {
+      display: grid;
+      gap: 0.8rem;
+    }
+
+    .why-ai-card h4 {
+      margin: 0;
+    }
+
+    .why-ai-card .card-summary {
+      line-height: 1.55;
+    }
+
+    .stat-callout {
+      padding: 0.9rem 1rem;
+      border-radius: 14px;
+      background: rgba(13, 92, 123, 0.07);
+      border: 1px solid rgba(13, 92, 123, 0.12);
+    }
+
+    body[data-theme='dark'] .stat-callout {
+      background: rgba(104, 199, 232, 0.08);
+      border-color: rgba(104, 199, 232, 0.18);
+    }
+
+    .stat-value {
+      display: block;
+      margin-bottom: 0.2rem;
+      font-size: 1.5rem;
+      line-height: 1;
+      font-weight: 700;
+      color: var(--ink);
+    }
+
+    .stat-detail {
+      font-size: 0.96rem;
+      line-height: 1.5;
+      color: var(--ink-soft);
+    }
+
+    .metric-source {
+      display: inline-block;
+      margin-top: 0.45rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--ocean);
+      text-decoration: none;
+    }
+
+    .metric-source:hover,
+    .metric-source:focus-visible {
+      text-decoration: underline;
     }
 
     .podcast {
@@ -798,7 +881,7 @@
   <header>
     <div class="wrap">
       <nav class="nav">
-        <div class="logo">AI Ready</div>
+        <div class="logo">AI'm Ready</div>
         <div class="nav-actions">
           <div class="pill">Built for college students • 100% free</div>
           <button class="theme-toggle" id="theme-toggle" type="button" aria-pressed="false">Dark mode</button>
@@ -815,9 +898,13 @@
 
       <div class="hero">
         <div>
+          <div class="hero-hook" aria-label="Brand hook">
+            <span class="hero-hook-ask">Are You Ready?</span>
+            <span class="hero-hook-answer">AI'm Ready!</span>
+          </div>
           <h1>Learn AI habits that help you think, not shortcut your work</h1>
           <p>
-            Start with the podcast, then use the quiz and tools to apply what you learn.
+            Join us and learn how to use AI to think smarter, prepare for future careers, and stay ahead - without cutting corners.
           </p>
           <div class="cta-group">
             <a class="cta primary" href="https://linktr.ee/youngandhungryk_12" target="_blank" rel="noopener noreferrer">Listen now</a>
@@ -836,23 +923,35 @@
     <div class="wrap">
       <h2 class="section-title">Why AI skills matter now</h2>
       <p class="section-lead">
-        AI is becoming a basic academic skill. Students are expected to use AI tools to research,
-        summarize, and brainstorm. The key skill is not learning to code AI, but knowing how to ask
-        good questions and use it responsibly. With rapid AI advancements, AI skills are no longer
-        optional. They are becoming a core life skill, similar to writing, math, or using computers.
+        AI is quickly becoming a basic academic and career skill. The real advantage is not building AI yourself, but knowing how to question it, verify it, and use it responsibly. Those habits now shape how students study, think, and prepare for work.
       </p>
-      <div class="grid">
-        <div class="card">
+      <div class="grid why-ai-grid">
+        <div class="card why-ai-card">
           <h4>Smarter studying</h4>
-          <p>Turn long readings into quick notes and practice questions you can review on your phone.</p>
+          <p class="card-summary">Turn long readings into quick notes and practice questions you can revisit fast.</p>
+          <div class="stat-callout">
+            <span class="stat-value">86%</span>
+            <span class="stat-detail">of students globally are regularly using AI in their studies.</span>
+          </div>
+          <a class="metric-source" href="https://www.digitaleducationcouncil.com/post/what-students-want-key-results-from-dec-global-ai-student-survey-2024" target="_blank" rel="noopener noreferrer">Source: Digital Education Council</a>
         </div>
-        <div class="card">
+        <div class="card why-ai-card">
           <h4>Sharper thinking</h4>
-          <p>AI helps you brainstorm, but you still choose the best ideas and facts.</p>
+          <p class="card-summary">AI can speed up brainstorming, but you still need judgment to choose what is accurate and useful.</p>
+          <div class="stat-callout">
+            <span class="stat-value">70%</span>
+            <span class="stat-detail">of the skills used in most jobs today are expected to change by 2030, with AI as a catalyst.</span>
+          </div>
+          <a class="metric-source" href="https://news.linkedin.com/2025/work-change-report-2025" target="_blank" rel="noopener noreferrer">Source: LinkedIn Work Change Report 2025</a>
         </div>
-        <div class="card">
+        <div class="card why-ai-card">
           <h4>Future-ready</h4>
-          <p>Graduate programs and employers want students who can use AI tools responsibly.</p>
+          <p class="card-summary">Graduate programs and employers increasingly expect responsible, practical AI fluency.</p>
+          <div class="stat-callout">
+            <span class="stat-value">3x+</span>
+            <span class="stat-detail">growth in U.S. AI-related job postings since 2016.</span>
+          </div>
+          <a class="metric-source" href="https://hai.stanford.edu/ai-index" target="_blank" rel="noopener noreferrer">Source: Stanford HAI AI Index</a>
         </div>
       </div>
     </div>
@@ -1057,11 +1156,11 @@
   </section>
 
   <footer>
-    <p>AI Ready is designed for college students preparing for graduate study and the workforce.</p>
+    <p>AI'm Ready is designed for college students preparing for graduate study and the workforce.</p>
     <p>Always follow your school or workplace AI guidelines.</p>
     <p><a href="https://linktr.ee/youngandhungryk_12" target="_blank" rel="noopener noreferrer" style="color: inherit;">Listen to Dr. Young's Podcast</a></p>
     <p><a href="responsible.html" style="color: inherit;">Responsible AI use guide</a></p>
-    <p>&copy; 2026 AI Ready. All rights reserved. Built for students, by educators.</p>
+    <p>&copy; 2026 AI'm Ready. All rights reserved. Built for students, by educators.</p>
   </footer>
   </main>
 
@@ -1077,7 +1176,7 @@
 
   <script>
     const themeToggle = document.getElementById('theme-toggle');
-    const savedTheme = localStorage.getItem('ai-ready-theme');
+    const savedTheme = localStorage.getItem('aim-ready-theme');
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
     const applyTheme = (theme) => {
@@ -1091,7 +1190,7 @@
     themeToggle.addEventListener('click', () => {
       const nextTheme = document.body.dataset.theme === 'dark' ? 'light' : 'dark';
       applyTheme(nextTheme);
-      localStorage.setItem('ai-ready-theme', nextTheme);
+      localStorage.setItem('aim-ready-theme', nextTheme);
     });
 
     const quiz = document.getElementById('ai-quiz');
@@ -1111,7 +1210,7 @@
       } else if (score <= 7) {
         message = 'You are building solid habits. Try refining prompts and double-checking AI answers.';
       } else {
-        message = 'You are AI-ready. Keep using AI thoughtfully and responsibly.';
+        message = "You are AI'm Ready. Keep using AI thoughtfully and responsibly.";
       }
 
       result.textContent = `Score: ${score}/10. ${message}`;

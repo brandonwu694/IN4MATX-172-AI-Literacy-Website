@@ -1,5 +1,5 @@
-# AI Ready Website 
+# AI'm Ready Website 
 
-- Landing page: AI Ready
+- Landing page: AI'm Ready
 
 - To view website on an internet browser: `open index.html`
