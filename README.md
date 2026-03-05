@@ -1,5 +1,5 @@
-# AI'm Ready Website 
+# Young & Hungry Website
 
-- Landing page: AI'm Ready
+- Landing page: Young & Hungry
 
 - To view website on an internet browser: `open index.html`
