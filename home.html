@@ -115,7 +115,7 @@
       align-items: center;
       justify-content: space-between;
       gap: 1rem;
-      flex-wrap: wrap;
+      flex-wrap: nowrap;
       padding: 1rem 1.15rem;
       border-radius: 20px;
       background: rgba(7, 18, 31, 0.24);
@@ -124,17 +124,31 @@
       backdrop-filter: blur(10px);
     }
 
+    .nav-main {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      min-width: 0;
+      flex: 1 1 auto;
+    }
+
     .logo {
+      display: flex;
+      align-items: center;
       font-weight: 700;
       letter-spacing: 0.5px;
       font-size: 1.1rem;
+      flex: 0 0 auto;
     }
 
     .nav-links {
       display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
+      gap: 22px;
+      flex-wrap: nowrap;
       align-items: center;
+      justify-content: flex-start;
+      flex: 0 1 auto;
+      min-width: 0;
     }
 
     .nav-links a {
@@ -154,9 +168,10 @@
 
     .nav-actions {
       display: flex;
-      gap: 0.75rem;
+      gap: 16px;
       align-items: center;
-      flex-wrap: wrap;
+      flex-wrap: nowrap;
+      flex: 0 0 auto;
     }
 
     .skip-link {
@@ -856,17 +871,21 @@
   <header>
     <div class="wrap">
       <nav class="nav">
-        <div class="logo">Young &amp; Hungry</div>
+        <div class="nav-main">
+          <div class="logo">
+            <img src="images/podcast_logo.png" alt="Young &amp; Hungry logo" height="42" />
+          </div>
+          <div class="nav-links" aria-label="Primary">
+            <a href="#why-ai">Why AI skills matter</a>
+            <a href="#about">About</a>
+            <a href="#path">Episodes</a>
+            <a href="#quiz">Quiz</a>
+            <a href="#activities">Activities</a>
+          </div>
+        </div>
         <div class="nav-actions">
           <div class="pill">Built for college students • 100% free</div>
           <button class="theme-toggle" id="theme-toggle" type="button" aria-pressed="false">Dark mode</button>
-        </div>
-        <div class="nav-links" aria-label="Primary">
-          <a href="#why-ai">Why AI skills matter</a>
-          <a href="#about">About</a>
-          <a href="#path">Episodes</a>
-          <a href="#quiz">Quiz</a>
-          <a href="#activities">Activities</a>
         </div>
       </nav>
 
@@ -876,7 +895,7 @@
           <p>Tune in to our podcast to discover how college students can use AI responsibly as a smart tool for academics and professional career exploration.</p>
           <div class="cta-group">
             <a class="cta primary" href="https://linktr.ee/youngandhungryk_12" target="_blank" rel="noopener noreferrer">Listen now</a>
-            <a class="cta secondary" href="#quiz">Take the AI-readiness quiz</a>
+            <a class="cta secondary" href="#quiz">Join our newsletter</a>
           </div>
         </div>
         <div class="hero-card">
@@ -961,23 +980,18 @@
       <div class="journey-grid">
         <div class="card journey-card">
           <div class="journey-step">1</div>
-          <h4>Episode 1 Placeholder</h4>
-          <p>Episode title, guest, and short summary will appear here.</p>
+          <h4>001 - Using AI to guide assignments</h4>
+          <p>Using AI to complete college assignments can be risky and laden with consequences. This is a guide for using AI to serve as a reference and framework for written assignments, and to dissuade students from plagiarism.</p>
         </div>
         <div class="card journey-card">
           <div class="journey-step">2</div>
-          <h4>Episode 2 Placeholder</h4>
-          <p>Add a brief overview of the key discussion points for this episode.</p>
+          <h4>002 - Using AI to teach yourself and other people</h4>
+          <p>Another use for AI is to use it to study for upcoming tests and exams. However, it is important to always cross-reference the information given by AI with the curriculum taught in your professor's lectures.</p>
         </div>
         <div class="card journey-card">
           <div class="journey-step">3</div>
-          <h4>Episode 3 Placeholder</h4>
-          <p>Use this space for episode highlights and learning takeaways.</p>
-        </div>
-        <div class="card journey-card">
-          <div class="journey-step">4</div>
-          <h4>Episode 4 Placeholder</h4>
-          <p>Link the episode and describe how it supports student career growth.</p>
+          <h4>003 - Creative digital media using AI</h4>
+          <p>One of AI's weakest capabilities is in the creation of digital media. Most of the details provided in animation and art are incorrect and off-putting, meaning that authentic animation and digital media creation is still dominated by human-made artworks.</p>
         </div>
       </div>
     </div>
