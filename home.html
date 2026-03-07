@@ -518,142 +518,76 @@
       gap: 0.5rem;
     }
 
-    .highlight {
-      background: linear-gradient(120deg, rgba(246, 193, 85, 0.4), rgba(199, 242, 224, 0.6));
-      padding: 0.1rem 0.3rem;
-      border-radius: 6px;
-      font-weight: 600;
-    }
-
-    .quiz {
+    .topic-grid {
+      margin-top: 0.4rem;
       display: grid;
-      gap: 1.5rem;
+      gap: 1.25rem;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
-    .quiz fieldset {
-      border: 1px solid var(--line-strong);
-      border-radius: 14px;
-      padding: 1rem 1.3rem 1.2rem;
-      background: var(--surface);
+    .topic-link-card {
+      display: grid;
+      gap: 0.8rem;
+      text-decoration: none;
+      color: inherit;
+      border-top: 5px solid var(--sun);
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
     }
 
-    .quiz legend {
-      font-weight: 600;
-      padding: 0 0.4rem;
-    }
-
-    .quiz label {
-      display: flex;
-      gap: 0.5rem;
-      align-items: flex-start;
-      margin-top: 0.7rem;
-      color: var(--ink-soft);
-    }
-
-    .quiz button {
-      margin-top: 0.5rem;
-      background: var(--ocean);
-      color: #ffffff;
-      border: none;
-      padding: 0.8rem 1.4rem;
-      border-radius: 12px;
-      font-weight: 600;
-      cursor: pointer;
-    }
-
-    .quiz-result {
-      margin-top: 1rem;
-      padding: 1rem 1.2rem;
-      border-radius: 12px;
-      background: rgba(199, 242, 224, 0.7);
-      color: #0f3d2e;
-      display: none;
-    }
-
-    .topics .card {
-      border-top: 6px solid var(--sun);
-    }
-
-    .topics .card:nth-child(2) {
+    .topic-link-card:nth-child(2) {
       border-top-color: var(--mint);
     }
 
-    .topics .card:nth-child(3) {
+    .topic-link-card:nth-child(3) {
       border-top-color: var(--coral);
     }
 
-    .topics .card:nth-child(4) {
+    .topic-link-card:nth-child(4) {
       border-top-color: #8fd3ff;
     }
 
-    .tool-grid {
-      display: grid;
-      gap: 1.5rem;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    .topic-link-card:hover,
+    .topic-link-card:focus-visible {
+      transform: translateY(-3px);
+      box-shadow: 0 24px 50px rgba(11, 16, 32, 0.2);
+      outline: none;
     }
 
-    .tool {
+    .topic-marker {
+      width: 2.2rem;
+      height: 2.2rem;
+      border-radius: 12px;
       display: grid;
-      gap: 0.8rem;
+      place-items: center;
+      font-size: 1.1rem;
+      background: rgba(13, 92, 123, 0.12);
+      border: 1px solid rgba(13, 92, 123, 0.2);
     }
 
-    .tool p {
+    body[data-theme='dark'] .topic-marker {
+      background: rgba(104, 199, 232, 0.12);
+      border-color: rgba(104, 199, 232, 0.24);
+    }
+
+    .topic-link-title {
+      margin: 0;
+      font-size: 1.08rem;
+    }
+
+    .topic-link-meta {
       margin: 0;
       color: var(--ink-soft);
+      font-size: 0.94rem;
     }
 
-    .tool-note {
-      margin-top: -0.2rem;
-      font-size: 0.9rem;
-      color: #314968;
-    }
-
-    .tool label {
-      display: grid;
-      gap: 0.3rem;
+    .topic-link-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      margin-top: 0.05rem;
+      color: var(--ocean);
+      font-size: 0.93rem;
       font-weight: 600;
-      color: var(--ink-soft);
-      font-size: 0.95rem;
-    }
-
-    .tool input,
-    .tool textarea,
-    .tool select {
-      width: 100%;
-      border: 1px solid var(--line-strong);
-      border-radius: 10px;
-      padding: 0.65rem 0.75rem;
-      font: inherit;
-      background: var(--surface-strong);
-      color: var(--ink);
-    }
-
-    .tool textarea {
-      min-height: 90px;
-      resize: vertical;
-    }
-
-    .tool button {
-      width: fit-content;
-      margin-top: 0.2rem;
-      background: var(--ocean);
-      color: #ffffff;
-      border: none;
-      padding: 0.75rem 1.1rem;
-      border-radius: 10px;
-      font-weight: 600;
-      cursor: pointer;
-    }
-
-    .tool-output {
-      display: none;
-      margin-top: 0.4rem;
-      padding: 0.9rem 1rem;
-      border-radius: 12px;
-      background: var(--tool-output-bg);
-      border: 1px solid var(--line-strong);
-      color: var(--ink-soft);
-      white-space: pre-line;
     }
 
     .journey {
@@ -863,6 +797,10 @@
       .journey-grid::before {
         display: none;
       }
+
+      .topic-grid {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
@@ -876,11 +814,10 @@
             <img src="images/podcast_logo.png" alt="Young &amp; Hungry logo" height="42" />
           </div>
           <div class="nav-links" aria-label="Primary">
-            <a href="#why-ai">Why AI skills matter</a>
             <a href="#about">About</a>
-            <a href="#path">Episodes</a>
-            <a href="#quiz">Quiz</a>
-            <a href="#activities">Activities</a>
+            <a href="#why-ai">Why AI Skills Matter</a>
+            <a href="#podcast">Podcast</a>
+            <a href="https://linktr.ee/youngandhungryk_12" target="_blank" rel="noopener noreferrer">Newsletter</a>
           </div>
         </div>
         <div class="nav-actions">
@@ -892,10 +829,10 @@
       <div class="hero">
         <div>
           <h1>ARE YOU READY? AI’m READY</h1>
-          <p>Tune in to our podcast to discover how college students can use AI responsibly as a smart tool for academics and professional career exploration.</p>
+          <p>Tune in to Dr Young’s Young & Hungry podcast to learn how college students can apply behavioral science to build lasting habits, stay consistent with academic and professional goals, and prepare for life after graduation.</p>
           <div class="cta-group">
             <a class="cta primary" href="https://linktr.ee/youngandhungryk_12" target="_blank" rel="noopener noreferrer">Listen now</a>
-            <a class="cta secondary" href="#quiz">Join our newsletter</a>
+            <a class="cta secondary" href="https://linktr.ee/youngandhungryk_12" target="_blank" rel="noopener noreferrer">Join our newsletter</a>
           </div>
         </div>
         <div class="hero-card">
@@ -997,128 +934,33 @@
     </div>
   </section>
 
-  <section class="section-cool" id="quiz">
-    <div class="wrap">
-      <h2 class="section-title">AI-readiness quiz</h2>
-      <p class="section-lead">Answer these quick questions to see how prepared you are. New here? Listen to the podcast first, then take the quiz and explore the sections below.</p>
-      <form class="quiz" id="ai-quiz">
-        <fieldset>
-          <legend>1. When you use AI, how do you check if the information is correct?</legend>
-          <label><input type="radio" name="q1" value="0" required /> I usually accept the first answer.</label>
-          <label><input type="radio" name="q1" value="1" /> I skim it and hope it is right.</label>
-          <label><input type="radio" name="q1" value="2" /> I double-check with trusted sources.</label>
-        </fieldset>
-        <fieldset>
-          <legend>2. How confident are you writing prompts or questions for AI?</legend>
-          <label><input type="radio" name="q2" value="0" required /> I keep them short and vague.</label>
-          <label><input type="radio" name="q2" value="1" /> I add some details, but not much.</label>
-          <label><input type="radio" name="q2" value="2" /> I give clear goals, context, and constraints.</label>
-        </fieldset>
-        <fieldset>
-          <legend>3. When AI gives you a draft, what do you do next?</legend>
-          <label><input type="radio" name="q3" value="0" required /> I submit it as is.</label>
-          <label><input type="radio" name="q3" value="1" /> I make a few edits and move on.</label>
-          <label><input type="radio" name="q3" value="2" /> I revise, add my voice, and check for accuracy.</label>
-        </fieldset>
-        <fieldset>
-          <legend>4. Do you know your school or workplace AI guidelines?</legend>
-          <label><input type="radio" name="q4" value="0" required /> Not really.</label>
-          <label><input type="radio" name="q4" value="1" /> I have heard of them.</label>
-          <label><input type="radio" name="q4" value="2" /> Yes, and I follow them.</label>
-        </fieldset>
-        <fieldset>
-          <legend>5. How often do you reflect on AI bias or fairness?</legend>
-          <label><input type="radio" name="q5" value="0" required /> Rarely.</label>
-          <label><input type="radio" name="q5" value="1" /> Sometimes.</label>
-          <label><input type="radio" name="q5" value="2" /> Often.</label>
-        </fieldset>
-        <button type="submit">See my score</button>
-        <div class="quiz-result" id="quiz-result" role="status" aria-live="polite"></div>
-      </form>
-    </div>
-  </section>
-
   <section class="section-warm" id="topics">
     <div class="wrap">
       <h2 class="section-title">Key topics for college students</h2>
       <p class="section-lead">
-        Each topic is <span class="highlight">100% free</span>, self-paced, and built to fit into busy schedules.
+        Explore a topic to see where AI fits, then jump into dedicated pages for focused guidance.
       </p>
-      <div class="grid topics">
-        <div class="card">
-          <h4>Resume & Applications</h4>
-          <p>Get help tailoring resumes, activity lists, and internship or fellowship applications with clear prompts.</p>
-        </div>
-        <div class="card">
-          <h4>Interview Practice</h4>
-          <p>Simulate interview questions and learn how to answer with confidence.</p>
-        </div>
-        <div class="card">
-          <h4>Grad School & PhD Applications</h4>
-          <p>Brainstorm research interests, outline statements of purpose, and refine your voice.</p>
-        </div>
-        <div class="card">
-          <h4>Career Exploration</h4>
-          <p>Explore majors, job paths, and daily work tasks with guided AI prompts.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section-cool" id="activities">
-    <div class="wrap">
-      <h2 class="section-title">Practice Activities</h2>
-      <p class="section-lead">
-        Try these quick tools for the top student support needs from your survey: job applications, interview practice, and time management.
-      </p>
-      <div class="tool-grid">
-        <div class="card tool">
-          <h4>Job Application Bullet Builder</h4>
-          <p>Paste a role and your experience, then get strong bullet starters you can tailor.</p>
-          <p class="tool-note">Use these as drafts only. Verify details and align with your course and campus AI policies.</p>
-          <label for="job-role">Role or internship title</label>
-          <input id="job-role" type="text" placeholder="Example: Data Analyst Intern" />
-          <label for="job-highlights">Job posting keywords (comma-separated)</label>
-          <textarea id="job-highlights" placeholder="SQL, dashboards, communication, Python"></textarea>
-          <label for="job-experience">Your related experience</label>
-          <textarea id="job-experience" placeholder="Class project, club role, work, research..."></textarea>
-          <button type="button" id="job-generate">Generate bullet ideas</button>
-          <div class="tool-output" id="job-output" role="status" aria-live="polite"></div>
-        </div>
-
-        <div class="card tool">
-          <h4>Interview Practice Coach</h4>
-          <p>Generate a practice question and get feedback using a STAR-style checklist.</p>
-          <p class="tool-note">Practice with AI, then confirm content quality with an instructor, TA, or career center mentor.</p>
-          <label for="interview-type">Interview type</label>
-          <select id="interview-type">
-            <option value="behavioral">Behavioral</option>
-            <option value="technical">Technical</option>
-            <option value="grad">Grad School/Research</option>
-          </select>
-          <button type="button" id="interview-question-btn">Generate question</button>
-          <div class="tool-output" id="interview-question" role="status" aria-live="polite"></div>
-          <label for="interview-answer">Your answer draft</label>
-          <textarea id="interview-answer" placeholder="Write a short answer here..."></textarea>
-          <button type="button" id="interview-feedback-btn">Get feedback</button>
-          <div class="tool-output" id="interview-feedback" role="status" aria-live="polite"></div>
-        </div>
-
-        <div class="card tool">
-          <h4>Time Management Planner</h4>
-          <p>Turn one deadline into a realistic day-by-day study plan.</p>
-          <p class="tool-note">Treat this as a planning start point. Adjust based on your actual workload and course expectations.</p>
-          <label for="plan-task">Task or assignment</label>
-          <input id="plan-task" type="text" placeholder="Example: Midterm prep for BIO 97" />
-          <label for="plan-date">Due date</label>
-          <input id="plan-date" type="date" />
-          <label for="plan-hours">Estimated total hours needed</label>
-          <input id="plan-hours" type="number" min="1" max="80" value="8" />
-          <label for="plan-daily">Hours you can do per day</label>
-          <input id="plan-daily" type="number" min="1" max="12" value="2" />
-          <button type="button" id="plan-generate">Build plan</button>
-          <div class="tool-output" id="plan-output" role="status" aria-live="polite"></div>
-        </div>
+      <div class="topic-grid">
+        <a class="card topic-link-card" href="topic-resume.html">
+          <div class="topic-marker" aria-hidden="true">📄</div>
+          <h3 class="topic-link-title">Resume &amp; Applications</h3>
+          <span class="topic-link-cta">Explore topic <span aria-hidden="true">→</span></span>
+        </a>
+        <a class="card topic-link-card" href="topic-interview.html">
+          <div class="topic-marker" aria-hidden="true">🎤</div>
+          <h3 class="topic-link-title">Interview Practice</h3>
+          <span class="topic-link-cta">Explore topic <span aria-hidden="true">→</span></span>
+        </a>
+        <a class="card topic-link-card" href="topic-grad-phd.html">
+          <div class="topic-marker" aria-hidden="true">🎓</div>
+          <h3 class="topic-link-title">Grad School &amp; PhD Applications</h3>
+          <span class="topic-link-cta">Explore topic <span aria-hidden="true">→</span></span>
+        </a>
+        <a class="card topic-link-card" href="topic-career.html">
+          <div class="topic-marker" aria-hidden="true">🧭</div>
+          <h3 class="topic-link-title">Career Exploration</h3>
+          <span class="topic-link-cta">Explore topic <span aria-hidden="true">→</span></span>
+        </a>
       </div>
     </div>
   </section>
@@ -1128,11 +970,11 @@
       <div class="card conversion-panel">
         <div>
           <h2 class="section-title" id="conversion-title">Use AI as a tool - not a shortcut</h2>
-          <p>Start with the podcast, then use the quiz and practice tools to apply the same standard to your own work.</p>
+          <p>Start with the podcast and keep learning through responsible, career-focused AI use.</p>
         </div>
         <div class="cta-group">
           <a class="cta primary" href="https://linktr.ee/youngandhungryk_12" target="_blank" rel="noopener noreferrer">Listen now</a>
-          <a class="cta secondary" href="#quiz">Take the quiz after listening</a>
+          <a class="cta secondary" href="https://linktr.ee/youngandhungryk_12" target="_blank" rel="noopener noreferrer">Join our newsletter</a>
         </div>
       </div>
     </div>
@@ -1176,200 +1018,6 @@
       localStorage.setItem('aim-ready-theme', nextTheme);
     });
 
-    const quiz = document.getElementById('ai-quiz');
-    const result = document.getElementById('quiz-result');
-
-    quiz.addEventListener('submit', (event) => {
-      event.preventDefault();
-      const data = new FormData(quiz);
-      let score = 0;
-      for (let i = 1; i <= 5; i += 1) {
-        score += Number(data.get(`q${i}`));
-      }
-
-      let message = '';
-      if (score <= 4) {
-        message = 'You are just getting started. Focus on writing clearer prompts and checking sources.';
-      } else if (score <= 7) {
-        message = 'You are building solid habits. Try refining prompts and double-checking AI answers.';
-      } else {
-        message = "You are Young & Hungry. Keep using AI thoughtfully and responsibly.";
-      }
-
-      result.textContent = `Score: ${score}/10. ${message}`;
-      result.style.display = 'block';
-      result.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-    });
-
-    const escapeHtml = (value) =>
-      value
-        .replaceAll('&', '&amp;')
-        .replaceAll('<', '&lt;')
-        .replaceAll('>', '&gt;')
-        .replaceAll('"', '&quot;')
-        .replaceAll("'", '&#39;');
-
-    const splitKeywords = (text) =>
-      text
-        .split(',')
-        .map((item) => item.trim())
-        .filter(Boolean)
-        .slice(0, 4);
-
-    const jobRoleInput = document.getElementById('job-role');
-    const jobHighlightsInput = document.getElementById('job-highlights');
-    const jobExperienceInput = document.getElementById('job-experience');
-    const jobOutput = document.getElementById('job-output');
-    const jobGenerateBtn = document.getElementById('job-generate');
-
-    jobGenerateBtn.addEventListener('click', () => {
-      const role = jobRoleInput.value.trim();
-      const highlights = splitKeywords(jobHighlightsInput.value);
-      const experience = jobExperienceInput.value.trim();
-
-      if (!role || !experience) {
-        jobOutput.style.display = 'block';
-        jobOutput.textContent = 'Add at least a role title and related experience to generate bullet ideas.';
-        return;
-      }
-
-      const focusOne = highlights[0] || 'analysis';
-      const focusTwo = highlights[1] || 'team collaboration';
-      const focusThree = highlights[2] || 'problem-solving';
-
-      jobOutput.innerHTML = `
-- Applied ${escapeHtml(focusOne)} skills in ${escapeHtml(experience)} to support ${escapeHtml(role)} goals.
-- Collaborated with peers and used ${escapeHtml(focusTwo)} to deliver project milestones on time.
-- Improved outcomes by identifying bottlenecks and using ${escapeHtml(focusThree)} to solve them.
-- Communicated results clearly through reports, presentations, or documentation.`;
-      jobOutput.style.display = 'block';
-    });
-
-    const interviewType = document.getElementById('interview-type');
-    const interviewQuestionBox = document.getElementById('interview-question');
-    const interviewAnswer = document.getElementById('interview-answer');
-    const interviewFeedback = document.getElementById('interview-feedback');
-    const interviewQuestionBtn = document.getElementById('interview-question-btn');
-    const interviewFeedbackBtn = document.getElementById('interview-feedback-btn');
-
-    const questionBank = {
-      behavioral: [
-        'Tell me about a time you handled competing deadlines.',
-        'Describe a conflict on a team and how you resolved it.',
-        'Give an example of a project where you had to learn quickly.'
-      ],
-      technical: [
-        'How would you debug a script that suddenly started failing?',
-        'Walk me through a project where you used data to make a decision.',
-        'How would you explain a technical concept to a non-technical audience?'
-      ],
-      grad: [
-        'What research interests do you want to explore in graduate school?',
-        'Tell us about a challenge in a research or course project and what you learned.',
-        'Why is this program a strong fit for your goals?'
-      ]
-    };
-
-    let currentInterviewQuestion = '';
-
-    interviewQuestionBtn.addEventListener('click', () => {
-      const pool = questionBank[interviewType.value];
-      const index = Math.floor(Math.random() * pool.length);
-      currentInterviewQuestion = pool[index];
-      interviewQuestionBox.textContent = `Practice question: ${currentInterviewQuestion}`;
-      interviewQuestionBox.style.display = 'block';
-    });
-
-    interviewFeedbackBtn.addEventListener('click', () => {
-      const answer = interviewAnswer.value.trim();
-      if (!currentInterviewQuestion) {
-        interviewFeedback.style.display = 'block';
-        interviewFeedback.textContent = 'Generate a question first, then draft your answer.';
-        return;
-      }
-
-      if (!answer) {
-        interviewFeedback.style.display = 'block';
-        interviewFeedback.textContent = 'Write a draft answer first to get feedback.';
-        return;
-      }
-
-      const wordCount = answer.split(/\s+/).filter(Boolean).length;
-      const lowerAnswer = answer.toLowerCase();
-      const hasSituation = lowerAnswer.includes('situation') || lowerAnswer.includes('context');
-      const hasAction = lowerAnswer.includes('action') || lowerAnswer.includes('i did') || lowerAnswer.includes('i decided');
-      const hasResult = lowerAnswer.includes('result') || lowerAnswer.includes('impact') || lowerAnswer.includes('outcome');
-
-      const tips = [];
-      if (wordCount < 70) tips.push('Add more detail (aim for about 70-140 words).');
-      if (wordCount > 170) tips.push('Tighten your answer and focus on one main example.');
-      if (!hasSituation) tips.push('Include a quick situation/context sentence.');
-      if (!hasAction) tips.push('Be explicit about your own actions.');
-      if (!hasResult) tips.push('End with a measurable result or takeaway.');
-      if (tips.length === 0) tips.push('Strong structure. Practice saying it out loud and trim filler words.');
-
-      interviewFeedback.textContent = `Question: ${currentInterviewQuestion}\n\nFeedback:\n- ${tips.join('\n- ')}`;
-      interviewFeedback.style.display = 'block';
-    });
-
-    const planTask = document.getElementById('plan-task');
-    const planDate = document.getElementById('plan-date');
-    const planHours = document.getElementById('plan-hours');
-    const planDaily = document.getElementById('plan-daily');
-    const planOutput = document.getElementById('plan-output');
-    const planGenerateBtn = document.getElementById('plan-generate');
-
-    planGenerateBtn.addEventListener('click', () => {
-      const task = planTask.value.trim();
-      const dueDateRaw = planDate.value;
-      const totalHours = Number(planHours.value);
-      const dailyHours = Number(planDaily.value);
-
-      if (!task || !dueDateRaw || !totalHours || !dailyHours) {
-        planOutput.style.display = 'block';
-        planOutput.textContent = 'Fill in all fields to build your plan.';
-        return;
-      }
-
-      const today = new Date();
-      today.setHours(0, 0, 0, 0);
-      const dueDate = new Date(`${dueDateRaw}T00:00:00`);
-      const msPerDay = 24 * 60 * 60 * 1000;
-      const daysUntilDue = Math.round((dueDate - today) / msPerDay);
-
-      if (daysUntilDue < 0) {
-        planOutput.style.display = 'block';
-        planOutput.textContent = 'That due date is in the past. Pick a current or future date.';
-        return;
-      }
-
-      const sessionsNeeded = Math.ceil(totalHours / dailyHours);
-      const availableDays = Math.max(daysUntilDue, 1);
-      const sessionsToSchedule = Math.min(sessionsNeeded, availableDays);
-      const hoursPerSession = (totalHours / sessionsToSchedule).toFixed(1);
-      const schedule = [];
-
-      for (let i = 0; i < sessionsToSchedule; i += 1) {
-        const slot = new Date(today);
-        slot.setDate(today.getDate() + i);
-        schedule.push(`${slot.toLocaleDateString()}: ${hoursPerSession} hrs`);
-      }
-
-      const paceNote =
-        sessionsNeeded > availableDays
-          ? 'Deadline is tight, so you may need longer daily blocks or extra support.'
-          : 'Pacing looks realistic if you stay consistent.';
-
-      planOutput.textContent = `Plan for: ${task}
-Due date: ${dueDate.toLocaleDateString()}
-Estimated effort: ${totalHours} hrs total
-
-Suggested schedule:
-${schedule.join('\n')}
-
-${paceNote}`;
-      planOutput.style.display = 'block';
-    });
   </script>
 </body>
 </html>

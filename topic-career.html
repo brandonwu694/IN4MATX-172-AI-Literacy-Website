@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Young & Hungry - Career exploration topic page." />
+  <title>Young &amp; Hungry - Career Exploration</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #0b1020; --ink-soft: #1f2a44; --ocean: #0d5c7b; --surface: #ffffff;
+      --line: rgba(15, 32, 64, 0.1);
+      --page-gradient: radial-gradient(circle at top left, #ffffff 0%, #f5f1eb 45%, #e8f4f0 100%);
+      --shadow: 0 20px 48px rgba(11, 16, 32, 0.16);
+    }
+    body[data-theme='dark'] {
+      --ink: #eef4ff; --ink-soft: #bfd0e4; --ocean: #68c7e8; --surface: #132133;
+      --line: rgba(167, 194, 221, 0.16);
+      --page-gradient: radial-gradient(circle at top left, #16243a 0%, #0d1725 50%, #09111c 100%);
+      --shadow: 0 22px 50px rgba(0, 0, 0, 0.34);
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; color: var(--ink); background: var(--page-gradient); line-height: 1.6; }
+    .wrap { max-width: 900px; margin: 0 auto; padding: 2.2rem 1.5rem 3.2rem; }
+    .topbar { display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap; margin-bottom: 1.5rem; }
+    .back, .theme-toggle { text-decoration: none; color: var(--ink); font-weight: 600; border: 1px solid var(--line); border-radius: 999px; padding: 0.45rem 0.9rem; background: var(--surface); font: inherit; cursor: pointer; }
+    .card { background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: 1.5rem; box-shadow: var(--shadow); }
+    h1 { margin: 0 0 0.8rem; font-size: clamp(2rem, 4vw, 2.6rem); line-height: 1.1; }
+    p { margin: 0 0 0.9rem; color: var(--ink-soft); }
+    .coming-soon { margin-top: 1rem; font-weight: 700; color: var(--ocean); }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <div class="topbar">
+      <a class="back" href="home.html#topics">Back to topics</a>
+      <button class="theme-toggle" id="theme-toggle" type="button" aria-pressed="false">Dark mode</button>
+    </div>
+    <section class="card">
+      <h1>Career Exploration</h1>
+      <p>AI can help students compare majors, map skills to job roles, and explore how career paths evolve over time. It can also support clearer planning by translating broad interests into practical next steps.</p>
+      <p>Use AI to research possibilities, then validate choices with advisors, mentors, and real-world experiences.</p>
+      <p class="coming-soon">Coming soon: career path exploration prompts and skills-roadmap templates.</p>
+    </section>
+  </main>
+  <script>
+    const themeToggle = document.getElementById('theme-toggle');
+    const savedTheme = localStorage.getItem('aim-ready-theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const applyTheme = (theme) => {
+      document.body.dataset.theme = theme;
+      themeToggle.textContent = theme === 'dark' ? 'Light mode' : 'Dark mode';
+      themeToggle.setAttribute('aria-pressed', String(theme === 'dark'));
+    };
+    applyTheme(savedTheme || (prefersDark ? 'dark' : 'light'));
+    themeToggle.addEventListener('click', () => {
+      const nextTheme = document.body.dataset.theme === 'dark' ? 'light' : 'dark';
+      applyTheme(nextTheme);
+      localStorage.setItem('aim-ready-theme', nextTheme);
+    });
+  </script>
+</body>
+</html>
