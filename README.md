@@ -37,6 +37,8 @@ Then open `http://localhost:8000`.
 
 ## Team
 
+Group 12
+
 - Diana Hernandez
 - Minh H. Le
 - Jesse E. Santiago
