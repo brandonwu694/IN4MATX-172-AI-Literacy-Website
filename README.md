@@ -12,14 +12,32 @@ Young & Hungry is a static website for college students learning how to use AI m
 
 ## Run Locally
 
-Open the site in a browser by launching `index.html`.
+Because this is a static website, you can open `index.html` directly in a browser.
+
+From the project root, you can launch it with one of the following commands:
 
 ```bash
+# macOS
 open index.html
+
+# Linux
+xdg-open index.html
+
+# Windows PowerShell
+ii index.html
 ```
+
+If you want a local server instead, from the project root run:
+
+```bash
+python3 -m http.server 8000
+```
+
+Then open `http://localhost:8000`.
 
 ## Team
 
-- Jesse E.
-- Brandon R.
-- Minh H.
+- Diana Hernandez
+- Minh H. Le
+- Jesse E. Santiago
+- Brandon R. Wu
